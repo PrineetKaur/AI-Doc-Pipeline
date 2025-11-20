@@ -4,6 +4,8 @@ An end-to-end automated workflow that transforms an OpenAPI specification into c
 API documentation using AI, with an optional human review step and
 static site generation.
 
+![Preview of Developer Portal Demo](preview.png)
+
 ------------------------------------------------------------------------
 
 ## Project Overview
@@ -22,8 +24,6 @@ documentation lifecycle. The pipeline automatically:
 
 It's designed as a portfolio project for **Technical Writers, Developer
 Experience (DX) Engineers, and Product Documentation Specialists**.
-
-![Preview of Developer Portal Demo](preview.png)
 
 ------------------------------------------------------------------------
 ## Technologies Used
