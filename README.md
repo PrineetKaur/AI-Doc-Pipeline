@@ -1,4 +1,4 @@
-# AI Documentation Pipeline
+# AI Pipeline for Technical Documentation
 
 Welcome to the **AI Documentation Pipeline** --- an end-to-end automated
 workflow that transforms an OpenAPI specification into clean, structured
