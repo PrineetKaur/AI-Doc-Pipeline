@@ -23,6 +23,8 @@ documentation lifecycle. The pipeline automatically:
 It's designed as a portfolio project for **Technical Writers, Developer
 Experience (DX) Engineers, and Product Documentation Specialists**.
 
+![Preview of Developer Portal Demo](preview.png)
+
 ------------------------------------------------------------------------
 ## Technologies Used
 
