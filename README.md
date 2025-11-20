@@ -1,13 +1,12 @@
 # AI Pipeline for Technical Documentation
 
-Welcome to the **AI Documentation Pipeline** --- an end-to-end automated
-workflow that transforms an OpenAPI specification into clean, structured
+An end-to-end automated workflow that transforms an OpenAPI specification into clean, structured
 API documentation using AI, with an optional human review step and
 static site generation.
 
 ------------------------------------------------------------------------
 
-## 🚀 Overview
+## Project Overview
 
 This project demonstrates how AI can be integrated into the technical
 documentation lifecycle. The pipeline automatically:
@@ -25,8 +24,39 @@ It's designed as a portfolio project for **Technical Writers, Developer
 Experience (DX) Engineers, and Product Documentation Specialists**.
 
 ------------------------------------------------------------------------
+## Technologies Used
 
-## 📁 Repository Structure
+-   **Python**
+-   **OpenAI GPT models**
+-   **MkDocs**
+-   **PyYAML**
+-   **GitHub Actions**
+-   **Markdown Automation**
+-   **AI-driven Content Generation**
+
+------------------------------------------------------------------------
+## Why This Project?
+
+This pipeline showcases your ability to:
+
+-   Design end‑to‑end developer documentation workflows\
+-   Integrate AI into production processes\
+-   Work with API specs\
+-   Build automated tooling\
+-   Structure scalable documentation systems
+
+**This is an excellent addition to any portfolio in:**
+
+-   Technical Writing\
+-   Developer Experience (DX)\
+-   API Documentation\
+-   AI + Documentation Systems\
+-   Product Knowledge Engineering
+
+------------------------------------------------------------------------
+
+
+## Repository Structure
 
     ai-doc-pipeline/
     │
@@ -53,7 +83,7 @@ Experience (DX) Engineers, and Product Documentation Specialists**.
 
 ------------------------------------------------------------------------
 
-## 🧠 How It Works
+## How It Works
 
 ### **1️⃣ Input: API Specification**
 
@@ -138,7 +168,7 @@ to your repository secrets.
 
 ------------------------------------------------------------------------
 
-## 🧩 Requirements
+## Requirements
 
 Install dependencies:
 
@@ -150,45 +180,14 @@ Set your OpenAI key:
 
 ------------------------------------------------------------------------
 
-## 🛠️ Technologies Used
 
--   **Python**
--   **OpenAI GPT models**
--   **MkDocs**
--   **PyYAML**
--   **GitHub Actions**
--   **Markdown Automation**
--   **AI-driven Content Generation**
-
-------------------------------------------------------------------------
-
-## 💡 Why This Project?
-
-This pipeline showcases your ability to:
-
--   Design end‑to‑end developer documentation workflows\
--   Integrate AI into production processes\
--   Work with API specs\
--   Build automated tooling\
--   Structure scalable documentation systems
-
-This is an excellent addition to any portfolio in:
-
--   Technical Writing\
--   Developer Experience (DX)\
--   API Documentation\
--   AI + Documentation Systems\
--   Product Knowledge Engineering
-
-------------------------------------------------------------------------
-
-## 📬 Contact
+## Contact
 
 Feel free to connect or reach out for collaborations, feedback, or
 enhancements.
 
 ------------------------------------------------------------------------
 
-## ⭐ If You Like This Project...
+## If You Like This Project...
 
-Give the repo a **star** ⭐ on GitHub --- it means a lot!
+Don't forget to give this repo a **star** ⭐ on GitHub!
