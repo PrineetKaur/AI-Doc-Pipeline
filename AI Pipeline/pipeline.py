@@ -1,23 +1,43 @@
 import yaml
 from pathlib import Path
 
+
 def load_spec(path):
-    with open(path) as f:
-        return yaml.safe_load(f)
+    """Load an OpenAPI spec from a YAML file."""
+    with open(path, "r") as file:
+        return yaml.safe_load(file)
+
 
 def generate_docs(spec):
+    """
+    Generate basic Markdown documentation from an OpenAPI specification.
+    """
     docs = []
-    for path, methods in spec["paths"].items():
+
+    api_title = spec.get("info", {}).get("title", "API Documentation")
+    docs.append(f"# {api_title}\n")
+
+    paths = spec.get("paths", {})
+    for endpoint, methods in paths.items():
         for method, details in methods.items():
-            docs.append(f"# {method.upper()} {path}\n\n{details.get('summary')}")
-    return "\n\n".join(docs)
+            summary = details.get("summary", "No description provided.")
+            docs.append(f"## {method.upper()} {endpoint}\n")
+            docs.append(f"{summary}\n")
 
-if _name_ == "_main_":
-    spec = load_spec("api-specs/payments_api.yaml")
-    output = generate_docs(spec)
+    return "\n".join(docs)
 
-    Path("generated-docs").mkdir(exist_ok=True)
-    with open("generated-docs/api.md", "w") as f:
-        f.write(output)
 
-    print("Docs generated!")
+if __name__ == "__main__":
+    spec_path = "API Specs/payments_api.yaml"
+    output_dir = Path("Generated Docs")
+    output_file = output_dir / "api.md"
+
+    spec = load_spec(spec_path)
+    docs = generate_docs(spec)
+
+    output_dir.mkdir(exist_ok=True)
+
+    with open(output_file, "w") as f:
+        f.write(docs)
+
+    print("Documentation generated successfully.")
