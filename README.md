@@ -76,7 +76,8 @@ This pipeline showcases your ability to:
     │   └── docs/
     │       └── index.md
     │
-    ├── pipeline.py               # Main automation script
+    ├── AI Pipeline/                     
+    │   └── pipeline.py           # Main automation script        
     ├── requirements.txt
     │
     └── .github/
