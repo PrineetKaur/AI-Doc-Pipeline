@@ -62,27 +62,28 @@ This pipeline showcases your ability to:
 
     ai-doc-pipeline/
     │
-    ├── api-specs/                # Input OpenAPI specifications
+    ├── AI Pipeline Code/                     
+    │   └── pipeline.py           # SOURCE (the pipeline logic)   
+    │   
+    ├── API Specs/                # INPUT (the spec you document)
     │   └── payments_api.yaml
     │
-    ├── generated-docs/           # AI‑generated drafts
-    │   └── post_v1_payments.md
+    ├── Generated Docs/           # OUTPUT (AI-generated documentation)
+    │   └── api.md
     │
-    ├── reviewed-docs/            # Manually edited final docs
+    ├── Reviewed Docs/            # Manually edited final docs
     │   └── placeholder.md
     │
-    ├── site/                     # MkDocs static site
+    ├── Site/                     # MkDocs static site
     │   ├── mkdocs.yml
     │   └── docs/
     │       └── index.md
-    │
-    ├── AI Pipeline/                     
-    │   └── pipeline.py           # Main automation script        
+    │    
     ├── requirements.txt
     │
-    └── .github/
+    └── Github Actions/           # Optional GitHub Actions deployment
         └── workflows/
-            └── ci.yml            # Optional GitHub Actions deployment
+            └── ci.yml            
 
 ------------------------------------------------------------------------
 
