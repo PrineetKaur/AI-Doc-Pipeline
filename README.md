@@ -4,7 +4,7 @@ This repository is a progressive, hands-on project focused on building **automat
 
 The goal is not to showcase a finished AI product, but to demonstrate **how documentation systems evolve** _(starting from basic automation and gradually incorporating AI in a controlled, explainable way.)_
 
-The project mirrors how real teams introduce AI into documentation workflows: carefully, incrementally, and with human oversight.
+The project mirrors how real teams introduce AI into thier documentation workflows: ***carefully, incrementally***, but more importantly, with ***human oversight.***
 
 ![Preview of Developer Portal Demo](preview.png)
 
