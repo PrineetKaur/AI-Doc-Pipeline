@@ -2,7 +2,7 @@
 
 This repository is a progressive, hands-on project focused on building **automated documentation pipelines** for technical products.
 
-The goal is not to showcase a finished AI product, but to demonstrate **how documentation systems evolve** _(starting from deterministic automation and gradually incorporating AI in a controlled, explainable way.)_
+The goal is not to showcase a finished AI product, but to demonstrate **how documentation systems evolve** _(starting from basic automation and gradually incorporating AI in a controlled, explainable way.)_
 
 The project mirrors how real teams introduce AI into documentation workflows: carefully, incrementally, and with human oversight.
 
