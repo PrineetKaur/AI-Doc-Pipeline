@@ -17,7 +17,7 @@ This project focuses on:
 - Designing **end-to-end documentation pipelines**
 - Working with **structured technical inputs**
 - Generating **consistent, repeatable documentation outputs**
-- Understanding where AI *adds value* — and where it should be governed
+- Understanding WHERE ***AI adds value***, and WHERE it should be **Governed**
 - Balancing **developer experience (DX)** with broader technical user needs
 
 APIs are used as the first example input, but the pipeline is intentionally designed to be extensible to other technical documentation domains.
