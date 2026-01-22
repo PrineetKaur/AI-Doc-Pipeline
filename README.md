@@ -66,8 +66,7 @@ Key characteristics of Phase 2:
 - The same command and output file are preserved
 - Failures in the AI layer fall back safely to deterministic output
 
-This phase demonstrates how AI can be introduced into documentation systems
-**incrementally, transparently, and with strong governance**.
+This phase demonstrates how AI can be introduced into documentation systems **incrementally, transparently, and with strong governance**.
 
 ------------------------------------------------------------------------
 
@@ -97,7 +96,7 @@ ai-doc-pipeline/
 ```
 
 
-Each folder has a clear responsibility:
+Each folder has a clear responsibility, with the following files playing the role:
 - **Source**: how documentation is generated
 - **Input**: what is being documented
 - **Output**: what users ultimately read
@@ -124,7 +123,7 @@ python3 "AI Pipeline Code/pipeline.py"
 
 After running:
 - A Markdown file is generated inside `Generated Docs/`
-- The output can be reviewed, committed, and published if you ran without AI, or else the output would be after AI-assisted enhancements
+- The output can be reviewed, committed, and published (by you or AI, depending on whether you turn on AI)
 
 
 ------------------------------------------------------------------------
