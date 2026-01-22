@@ -134,12 +134,12 @@ After running:
 This repository is intentionally developed in **clear phases**, similar to
 a learning playground or internal tooling evolution.
 
-### Phase 1 — Deterministic pipeline (current)
+### Phase 1 — Deterministic pipeline 
 - Structured input → Markdown output
 - No AI
 - Focus on correctness and reproducibility
 
-### Phase 2 — AI-assisted API documentation
+### Phase 2 — AI-assisted API documentation (current)
 - Improve clarity, structure, and examples using AI
 - AI augments the pipeline, not replaces it
 - Strong focus on developer experience (DX)
