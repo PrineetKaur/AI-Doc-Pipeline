@@ -4,7 +4,7 @@ This repository is a progressive, hands-on project focused on building **automat
 
 The goal is not to showcase a finished AI product, but to demonstrate **how documentation systems evolve** _(starting from basic automation and gradually incorporating AI in a controlled, explainable way.)_
 
-The project mirrors how real teams introduce AI into thier documentation workflows: ***carefully, incrementally***, but more importantly, with ***human oversight.***
+The project mirrors how real teams introduce AI into their documentation workflows: ***carefully, incrementally***, but more importantly, with ***human oversight.***
 
 ![Preview of Developer Portal Demo](preview.png)
 
@@ -106,7 +106,7 @@ Each folder has a clear responsibility:
 
 From the repository root, run the following:
 
-#If you want Deterministic only ⤵️
+If you want Deterministic Output only ⤵️
 
 ```bash                          
 python3 "AI Pipeline Code/pipeline.py"        
