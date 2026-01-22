@@ -24,7 +24,7 @@ APIs are used as the first example input, but the pipeline is intentionally desi
 
 ------------------------------------------------------------------------
 
-## Current project state (Phase 1)
+## Previous project state (Phase 1)
 
 At its current stage, this repository contains a **fully working,
 non-AI documentation pipeline**.
@@ -39,6 +39,34 @@ The pipeline:
 
 This phase establishes a strong foundation before introducing AI.
 
+## Current project state (Phase 2)
+
+At this stage, the repository contains a **working AI-assisted documentation pipeline** that builds directly on the deterministic foundation established in Phase 1.
+
+The pipeline now operates in two distinct steps:
+
+1. **Deterministic generation**
+   - Reads a structured OpenAPI (Swagger) YAML file
+   - Extracts endpoints and summaries
+   - Produces a baseline Markdown document
+
+2. **Optional AI-assisted enhancement**
+   - Uses an LLM as an editorial layer
+   - Improves clarity, structure, and developer experience
+   - Does not invent or modify technical facts
+   - Can be enabled or disabled via configuration
+
+Key characteristics of Phase 2:
+
+- The deterministic pipeline remains the source of truth
+- AI is used only to improve readability and usability
+- Output remains reproducible when AI is disabled
+- The same command and output file are preserved
+- Failures in the AI layer fall back safely to deterministic output
+
+This phase demonstrates how AI can be introduced into documentation systems
+**incrementally, transparently, and with strong governance**.
+
 ------------------------------------------------------------------------
 
 ## Repository structure
@@ -52,13 +80,36 @@ ai-doc-pipeline/
 ├── API Specs/                # INPUT: structured technical specs
 │   └── payments_api.yaml
 │
-├── Generated Docs/           # OUTPUT: generated documentation
+├── Generated Docs/           
 │   ├── .gitkeep
 │   └── api.md
 │
 ├── README.md
 ├── LICENSE
 ```
+
+ai-doc-pipeline/
+│
+├── AI Pipeline Code/
+│   ├── pipeline.py              # SOURCE: documentation pipeline logic
+│   └── ai/
+│       ├── __init__.py
+│       ├── enhancer.py          # AI editor logic
+│       └── prompts.py           # Controlled AI instructions
+│
+├── API Specs/                   # INPUT: structured technical specs
+│   └── payments_api.yaml
+│
+├── Generated Docs/              # OUTPUT: generated documentation
+│   ├── .gitkeep
+│   └── api.md
+│
+├── README.md                    
+├── LICENSE
+├── requirements.txt             # Minimal requirements for running the project
+├── .env.example                 # Just an artifact for you to better understand “What environment variables does this project expect?”
+
+
 
 Each folder has a clear responsibility:
 - **Source**: how documentation is generated
@@ -72,14 +123,19 @@ Each folder has a clear responsibility:
 From the repository root:
 
 ```bash
+python3 "AI Pipeline Code/pipeline.py"                #If you want Deterministic only
+```
+
+```bash
+export USE_AI=true
+export OPENAI_API_KEY=your_key
 python3 "AI Pipeline Code/pipeline.py"
 ```
 
 After running:
 - A Markdown file is generated inside `Generated Docs/`
-- The output can be reviewed, committed, and published
+- The output can be reviewed, committed, and published if you ran without AI, or else the output would be after AI-assisted enhancements
 
-No AI configuration is required at this stage.
 
 ------------------------------------------------------------------------
 
