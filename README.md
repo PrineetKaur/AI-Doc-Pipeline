@@ -1,8 +1,8 @@
 # AI Pipeline for Technical Documentation
 
-This repository is a progressive, hands-on project focused on building **automated documentation pipelines** for technical products.
+This repository is a progressive, hands-on project focused on building **Efficient AI Documentation Pipelines** for Technical Products.
 
-The goal is not to showcase a finished AI product, but to demonstrate **how documentation systems evolve** _(starting from basic automation and gradually incorporating AI in a controlled, explainable way.)_
+The goal is not to showcase a finished AI product, but to demonstrate **How AI-enabled Systems Should Evolve** _(starting from basic automation and gradually incorporating AI in a controlled, explainable way.)_
 
 The project mirrors how real teams introduce AI into their documentation workflows: ***carefully, incrementally***, but more importantly, with ***human oversight.***
 
