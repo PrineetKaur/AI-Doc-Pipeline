@@ -1,5 +1,15 @@
+import os
 import yaml
 from pathlib import Path
+
+# Optional AI enhancer
+USE_AI = os.getenv("USE_AI", "false").lower() == "true"
+
+if USE_AI:
+    try:
+        from ai.enhancer import enhance_markdown
+    except ImportError:
+        USE_AI = False
 
 
 def load_spec(path):
@@ -10,7 +20,7 @@ def load_spec(path):
 
 def generate_docs(spec):
     """
-    Generate basic Markdown documentation from an OpenAPI specification.
+    Generate deterministic Markdown documentation from an OpenAPI specification.
     """
     docs = []
 
@@ -34,6 +44,14 @@ if __name__ == "__main__":
 
     spec = load_spec(spec_path)
     docs = generate_docs(spec)
+
+    # Phase 2: Optional AI enhancement
+    if USE_AI:
+        try:
+            docs = enhance_markdown(docs)
+            print("AI enhancement applied.")
+        except Exception as e:
+            print(f"AI enhancement failed, using deterministic output: {e}")
 
     output_dir.mkdir(exist_ok=True)
 
