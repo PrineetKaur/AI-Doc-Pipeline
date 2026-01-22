@@ -75,22 +75,6 @@ This phase demonstrates how AI can be introduced into documentation systems
 ai-doc-pipeline/
 │
 ├── AI Pipeline Code/
-│   └── pipeline.py           # SOURCE: documentation pipeline logic
-│
-├── API Specs/                # INPUT: structured technical specs
-│   └── payments_api.yaml
-│
-├── Generated Docs/           
-│   ├── .gitkeep
-│   └── api.md
-│
-├── README.md
-├── LICENSE
-```
-
-ai-doc-pipeline/
-│
-├── AI Pipeline Code/
 │   ├── pipeline.py              # SOURCE: documentation pipeline logic
 │   └── ai/
 │       ├── __init__.py
@@ -108,7 +92,7 @@ ai-doc-pipeline/
 ├── LICENSE
 ├── requirements.txt             # Minimal requirements for running the project
 ├── .env.example                 # Just an artifact for you to better understand “What environment variables does this project expect?”
-
+```
 
 
 Each folder has a clear responsibility:
