@@ -104,14 +104,18 @@ Each folder has a clear responsibility:
 
 ## How to run the pipeline (current version)
 
-From the repository root:
+From the repository root, run the following:
 
-```bash
-python3 "AI Pipeline Code/pipeline.py"                #If you want Deterministic only
+#If you want Deterministic only ⤵️
+
+```bash                          
+python3 "AI Pipeline Code/pipeline.py"        
 ```
 
+#If you want AI-reviewed for better structure, clarity, and improved DevEx ⤵️
+
 ```bash
-export USE_AI=true
+export USE_AI=true                                    
 export OPENAI_API_KEY=your_key
 python3 "AI Pipeline Code/pipeline.py"
 ```
