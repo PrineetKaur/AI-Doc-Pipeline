@@ -161,6 +161,12 @@ a learning playground or internal tooling evolution.
 - Detection of ambiguity or drift
 - Human-in-the-loop review patterns
 
+### Phase 6 — Exposure & agent integration
+- Expose core pipeline functions as MCP tools (`parse_spec`, `generate_baseline_doc`, `enhance_with_ai`)
+- Add a `check_doc_drift` tool, building on the drift and ambiguity detection established in Phase 5
+- Optionally, a lightweight Claude Skill that orchestrates these tools for common documentation tasks
+- Makes the pipeline callable by AI agents and external MCP clients, not just runnable as a local script
+
 ------------------------------------------------------------------------
 
 ## Why this project exists
@@ -190,6 +196,4 @@ in real organizations.
 
 ## Notes
 
-All examples use simplified or fictional specifications.
-This repository is intended for learning, experimentation, and portfolio
-demonstration — not as a production-ready documentation system.
+All examples use simplified or fictional specifications to keep the project approachable and easy to evaluate. This repository demonstrates the architecture and reasoning behind AI-governed documentation pipelines. The same patterns that would apply to a production system, built here at a scale suited for learning, experimentation, and portfolio review.
