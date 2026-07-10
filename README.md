@@ -89,10 +89,18 @@ ai-doc-pipeline/
 │   ├── .gitkeep
 │   └── api.md
 │
+├── mcp_server/                  # PLANNED (Phase 6): MCP tool exposure layer
+│   ├── server.py
+│   └── tools/
+│       ├── parse_spec.py
+│       ├── generate_baseline_doc.py
+│       ├── enhance_with_ai.py
+│       └── check_doc_drift.py
+│
 ├── README.md                    
 ├── LICENSE
 ├── requirements.txt             # Minimal requirements for running the project
-├── .env.example                 # Just an artifact for you to better understand “What environment variables does this project expect?”
+├── .env.example                 # Just an artifact for you to better understand "What environment variables does this project expect?"
 ```
 
 
