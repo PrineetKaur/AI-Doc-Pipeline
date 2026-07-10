@@ -16,57 +16,29 @@ The project mirrors how real teams introduce AI into their documentation workflo
 
 This project focuses on:
 
-- Designing **end-to-end documentation pipelines**
-- Working with **structured technical inputs**
-- Generating **consistent, repeatable documentation outputs**
-- Understanding WHERE ***AI adds value***, and WHERE it should be **Governed**
-- Balancing **developer experience (DX)** with broader technical user needs
+- Designing end-to-end documentation pipelines
+- Working with structured technical inputs
+- Generating consistent, repeatable documentation outputs
+- Understanding WHERE AI adds value, and WHERE it should be governed
+- Balancing developer experience (DX) with broader technical user needs — human and machine alike
 
-APIs are used as the first example input, but the pipeline is intentionally designed to be extensible to other technical documentation domains.
+APIs are used as the first example input, but the pipeline is intentionally designed to be extensible to other technical documentation domains, and consumable by both human readers and AI agents.
 
 ------------------------------------------------------------------------
 
-## Previous project state (Phase 1)
+## Project Layers
+This project is organized around three architectural layers, each responsible for a different part of turning technical input into usable documentation.
 
-At its current stage, this repository contains a **fully working,
-non-AI documentation pipeline**.
+### Layer 1 — Deterministic Generation
+Reads structured technical input (starting with OpenAPI/Swagger specs) and produces a baseline Markdown document through fully deterministic, reproducible logic. No AI is involved. This layer is the source of truth throughout the project — every other layer builds on top of it, never replaces it.
 
-The pipeline:
+### Layer 2 — AI-Assisted Enhancement
+An optional editorial layer that improves the clarity, structure, and developer experience of Layer 1's output. It does not invent or modify technical facts, can be toggled on or off, and falls back safely to Layer 1's deterministic output if it fails. This is where the project's governance philosophy lives most visibly: AI augments, it doesn't replace.
 
-- Reads a structured OpenAPI (Swagger) YAML file
-- Extracts relevant technical information
-- Generates Markdown documentation
-- Writes the output to a version-controlled folder
-- Produces deterministic, reproducible results
+### Layer 3 — Exposure & Agent Integration
+Makes the pipeline callable by AI agents and external tools, via MCP, rather than only runnable as a local script. This layer depends on Layers 1 and 2 already being solid and governed — exposing an ungoverned pipeline to autonomous agents would defeat the purpose of everything built before it.
 
-This phase establishes a strong foundation before introducing AI.
-
-## Current project state (Phase 2)
-
-At this stage, the repository contains a **working AI-assisted documentation pipeline** that builds directly on the deterministic foundation established in Phase 1.
-
-The pipeline now operates in two distinct steps:
-
-1. **Deterministic generation**
-   - Reads a structured OpenAPI (Swagger) YAML file
-   - Extracts endpoints and summaries
-   - Produces a baseline Markdown document
-
-2. **Optional AI-assisted enhancement**
-   - Uses an LLM as an editorial layer
-   - Improves clarity, structure, and developer experience
-   - Does not invent or modify technical facts
-   - Can be enabled or disabled via configuration
-
-Key characteristics of Phase 2:
-
-- The deterministic pipeline remains the source of truth
-- AI is used only to improve readability and usability
-- Output remains reproducible when AI is disabled
-- The same command and output file are preserved
-- Failures in the AI layer fall back safely to deterministic output
-
-This phase demonstrates how AI can be introduced into documentation systems **incrementally, transparently, and with strong governance**.
+The phased roadmap below shows how each layer is built out over time — Phases 1 and 2 establish Layers 1 and 2; Phases 3–5 extend and strengthen them (new input types, audience awareness, governance); and Phase 6 builds Layer 3 on top of that foundation.
 
 ------------------------------------------------------------------------
 
@@ -111,31 +83,6 @@ Each folder has a clear responsibility, with the following files playing the rol
 
 ------------------------------------------------------------------------
 
-## How to run the pipeline (current version)
-
-From the repository root, run the following:
-
-If you want Deterministic Output only ⤵️
-
-```bash                          
-python3 "AI Pipeline Code/pipeline.py"        
-```
-
-#If you want AI-reviewed for better structure, clarity, and improved DevEx ⤵️
-
-```bash
-export USE_AI=true                                    
-export OPENAI_API_KEY=your_key
-python3 "AI Pipeline Code/pipeline.py"
-```
-
-After running:
-- A Markdown file is generated inside `Generated Docs/`
-- The output can be reviewed, committed, and published (by you or AI, depending on whether you turn on AI)
-
-
-------------------------------------------------------------------------
-
 ## Planned project progression
 
 This repository is intentionally developed in **clear phases**, similar to
@@ -175,6 +122,31 @@ a learning playground or internal tooling evolution.
 - Optionally, a lightweight Claude Skill that orchestrates these tools for common documentation tasks
 - Makes the pipeline callable by AI agents and external MCP clients, not just runnable as a local script
 
+------------------------------------------------------------------------
+
+## How to run the pipeline
+
+From the repository root, run the following:
+
+If you want Deterministic Output only ⤵️
+
+```bash                          
+python3 "AI Pipeline Code/pipeline.py"        
+```
+
+#If you want AI-reviewed for better structure, clarity, and improved DevEx ⤵️
+
+```bash
+export USE_AI=true                                    
+export OPENAI_API_KEY=your_key
+python3 "AI Pipeline Code/pipeline.py"
+```
+
+After running:
+- A Markdown file is generated inside `Generated Docs/`
+- The output can be reviewed, committed, and published (by you or AI, depending on whether you turn on AI)
+
+**Instructions for running the MCP server (Layer 3) will be added once Phase 6 is implemented.**
 ------------------------------------------------------------------------
 
 ## Why this project exists
