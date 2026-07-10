@@ -1,4 +1,4 @@
-# AI Pipeline for Technical Documentation
+# AI Pipeline for Documentation
 
 This repository is a progressive, hands-on project focused on building **Efficient AI-Assisted Doc Pipelines** for Technical Products.
 
