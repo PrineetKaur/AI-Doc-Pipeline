@@ -126,25 +126,36 @@ a learning playground or internal tooling evolution.
 
 ## How to run the pipeline
 
-From the repository root, run the following:
-
-If you want Deterministic Output only ⤵️
-
-```bash                          
-python3 "AI Pipeline Code/pipeline.py"        
-```
-
-#If you want AI-reviewed for better structure, clarity, and improved DevEx ⤵️
+From the repository root:
 
 ```bash
-export USE_AI=true                                    
-export OPENAI_API_KEY=your_key
+python3 "AI Pipeline Code/pipeline.py"
+```
+
+### Deterministic mode (default)
+
+By default, the pipeline generates documentation using only the deterministic generation step.
+
+No AI configuration is required.
+
+### AI-assisted mode (optional)
+
+To enable AI-assisted documentation enhancement:
+
+```bash
+export USE_AI=true
+export OPENAI_API_KEY=your_api_key
+
 python3 "AI Pipeline Code/pipeline.py"
 ```
 
 After running:
 - A Markdown file is generated inside `Generated Docs/`
 - The output can be reviewed, committed, and published (by you or AI, depending on whether you turn on AI)
+
+To Note: 
+- When AI is enabled, the deterministic documentation is generated first and then refined by the AI editor.
+- If AI enhancement fails for any reason, the pipeline falls back gracefully to provide the deterministic output.
 
 #### **Instructions for running the MCP server (Layer 3) will be added once Phase 6 is implemented.**
 ------------------------------------------------------------------------
