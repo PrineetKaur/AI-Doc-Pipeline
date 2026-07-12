@@ -20,42 +20,74 @@ def load_spec(path):
 
 def generate_docs(spec):
     """
-    Generate deterministic Markdown documentation from an OpenAPI specification.
+    Generate Markdown documentation from an OpenAPI specification.
     """
+
     docs = []
 
-    api_title = spec.get("info", {}).get("title", "API Documentation")
-    docs.append(f"# {api_title}\n")
+    info = spec.get("info", {})
+
+    docs.append(f"# {info.get('title', 'API Documentation')}\n")
+
+    docs.append(f"**Version:** {info.get('version', 'N/A')}\n")
+
+    if info.get("description"):
+        docs.append(f"{info['description']}\n")
+
+    servers = spec.get("servers", [])
+    if servers:
+        docs.append("## Base URL\n")
+        docs.append(f"`{servers[0]['url']}`\n")
+
+    docs.append("---\n")
+
+    docs.append("# Endpoints\n")
 
     paths = spec.get("paths", {})
+
     for endpoint, methods in paths.items():
+
         for method, details in methods.items():
-            summary = details.get("summary", "No description provided.")
+
             docs.append(f"## {method.upper()} {endpoint}\n")
-            docs.append(f"{summary}\n")
+
+            docs.append(
+                f"**Summary:** {details.get('summary','No summary available.')}\n"
+            )
+
+            if details.get("description"):
+                docs.append(
+                    f"**Description:** {details['description']}\n"
+                )
+
+            parameters = details.get("parameters", [])
+
+            if parameters:
+
+                docs.append("### Parameters\n")
+
+                for parameter in parameters:
+
+                    docs.append(
+                        f"- **{parameter['name']}** ({parameter['in']})"
+                    )
+
+            if "requestBody" in details:
+                docs.append("\n### Request Body\n")
+                docs.append("Request body required.\n")
+
+            responses = details.get("responses", {})
+
+            if responses:
+
+                docs.append("\n### Responses\n")
+
+                for code, response in responses.items():
+
+                    docs.append(
+                        f"- **{code}** — {response.get('description','')}"
+                    )
+
+            docs.append("\n---\n")
 
     return "\n".join(docs)
-
-
-if __name__ == "__main__":
-    spec_path = "API Specs/payments_api.yaml"
-    output_dir = Path("Generated Docs")
-    output_file = output_dir / "api.md"
-
-    spec = load_spec(spec_path)
-    docs = generate_docs(spec)
-
-    # Phase 2: Optional AI enhancement
-    if USE_AI:
-        try:
-            docs = enhance_markdown(docs)
-            print("AI enhancement applied.")
-        except Exception as e:
-            print(f"AI enhancement failed, using deterministic output: {e}")
-
-    output_dir.mkdir(exist_ok=True)
-
-    with open(output_file, "w") as f:
-        f.write(docs)
-
-    print("Documentation generated successfully.")
