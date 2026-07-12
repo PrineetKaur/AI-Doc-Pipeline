@@ -1,15 +1,45 @@
 openapi: 3.0.0
+
 info:
-  title: Payments API
+  title: Payments Service API
   version: 1.0.0
+  description: API for creating, retrieving, and managing payment transactions.
+
+servers:
+  - url: https://api.example.dev/v1
 
 paths:
   /payments:
-    post:
-      summary: Create a new payment
     get:
-      summary: List all payments
+      summary: List payments
+      description: Returns a list of payment transactions.
+      responses:
+        "200":
+          description: Payments retrieved successfully.
 
-  /payments/{id}:
+    post:
+      summary: Create payment
+      description: Creates a new payment transaction.
+      requestBody:
+        required: true
+      responses:
+        "201":
+          description: Payment created successfully.
+        "400":
+          description: Invalid request payload.
+
+  /payments/{paymentId}:
     get:
-      summary: Retrieve a payment by ID
+      summary: Retrieve payment
+      description: Returns details for a specific payment.
+      parameters:
+        - name: paymentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Payment retrieved successfully.
+        "404":
+          description: Payment not found.
