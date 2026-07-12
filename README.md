@@ -20,7 +20,7 @@ This project focuses on:
 - Working with structured technical inputs
 - Generating consistent, repeatable documentation outputs
 - Understanding WHERE AI adds value, and WHERE it should be governed
-- Balancing developer experience (DX) with broader technical user needs — human and machine alike
+- Balancing developer experience (DX) with broader technical needs *(human and machine alike)*
 
 APIs are used as the first example input, but the pipeline is intentionally designed to be extensible to other technical documentation domains, and consumable by both human readers and AI agents.
 
