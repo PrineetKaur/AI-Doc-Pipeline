@@ -1,5 +1,3 @@
-print("Pipeline started")
-
 import os
 import yaml
 from pathlib import Path
@@ -93,3 +91,26 @@ def generate_docs(spec):
             docs.append("\n---\n")
 
     return "\n".join(docs)
+
+if __name__ == "__main__":
+    spec_path = "API Specs/payments_api.yaml"
+    output_dir = Path("Generated Docs")
+    output_file = output_dir / "api.md"
+
+    spec = load_spec(spec_path)
+    docs = generate_docs(spec)
+
+    # Phase 2: Optional AI enhancement
+    if USE_AI:
+        try:
+            docs = enhance_markdown(docs)
+            print("AI enhancement applied.")
+        except Exception as e:
+            print(f"AI enhancement failed, using deterministic output: {e}")
+
+    output_dir.mkdir(exist_ok=True)
+
+    with open(output_file, "w") as f:
+        f.write(docs)
+
+    print("Documentation generated successfully.")
