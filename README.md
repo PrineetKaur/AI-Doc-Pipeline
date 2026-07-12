@@ -146,7 +146,7 @@ After running:
 - A Markdown file is generated inside `Generated Docs/`
 - The output can be reviewed, committed, and published (by you or AI, depending on whether you turn on AI)
 
-**Instructions for running the MCP server (Layer 3) will be added once Phase 6 is implemented.**
+***Instructions for running the MCP server (Layer 3) will be added once Phase 6 is implemented.***
 ------------------------------------------------------------------------
 
 ## Why this project exists
