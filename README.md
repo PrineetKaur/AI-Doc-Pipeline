@@ -6,7 +6,7 @@ The goal is not to showcase a finished AI product, but to demonstrate **How AI S
 
 The project mirrors how real teams introduce AI into their documentation workflows: 
 
-**### Carefully, Incrementally***, but more importantly, governed with ***Human Oversight.**
+***Carefully, Incrementally***, but more importantly, governed with ***Human Oversight.**
 
 ![Preview of Developer Portal Demo](preview.png)
 
@@ -146,7 +146,7 @@ After running:
 - A Markdown file is generated inside `Generated Docs/`
 - The output can be reviewed, committed, and published (by you or AI, depending on whether you turn on AI)
 
-***Instructions for running the MCP server (Layer 3) will be added once Phase 6 is implemented.***
+#### **Instructions for running the MCP server (Layer 3) will be added once Phase 6 is implemented.**
 ------------------------------------------------------------------------
 
 ## Why this project exists
