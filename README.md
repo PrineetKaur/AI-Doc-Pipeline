@@ -185,6 +185,20 @@ in real organizations.
 
 ------------------------------------------------------------------------
 
+## AI design principles
+
+This project intentionally treats AI as an **augmentation layer**, not as a replacement for deterministic documentation generation.
+
+The pipeline follows three core principles:
+
+- **Deterministic first** — Structured technical specifications remain the authoritative source of documentation.
+- **AI as an editor** — AI improves readability, structure, and developer experience without changing technical facts.
+- **Graceful fallback** — If AI is unavailable, the deterministic documentation is still generated successfully.
+
+This architecture demonstrates a practical approach to introducing AI into technical documentation workflows while maintaining transparency, reliability, and human oversight.
+
+------------------------------------------------------------------------
+
 ## Notes
 
-All examples use simplified or fictional specifications to keep the project approachable and easy to evaluate. This repository demonstrates the architecture and reasoning behind AI-governed documentation pipelines. The same patterns that would apply to a production system, built here at a scale suited for learning, experimentation, and portfolio review.
+All examples use simplified or fictional specifications to keep the project approachable and easy to evaluate. This repository demonstrates the architecture and reasoning behind AI-governed documentation pipelines. The same patterns that would apply to a production system are built here at a scale suited for learning, experimentation, and portfolio review.
