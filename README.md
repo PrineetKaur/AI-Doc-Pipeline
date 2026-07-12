@@ -6,7 +6,7 @@ The goal is not to showcase a finished AI product, but to demonstrate **How AI S
 
 The project mirrors how real teams introduce AI into their documentation workflows: 
 
-***Carefully, Incrementally***, but more importantly, governed with ***Human Oversight.***
+**### Carefully, Incrementally***, but more importantly, governed with ***Human Oversight.**
 
 ![Preview of Developer Portal Demo](preview.png)
 
