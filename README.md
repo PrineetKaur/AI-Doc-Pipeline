@@ -75,11 +75,11 @@ ai-doc-pipeline/
 ├── .env.example                 # Just an artifact for you to better understand "What environment variables does this project expect?"
 ```
 
-
-Each folder has a clear responsibility, with the following files playing the role:
-- **Source**: how documentation is generated
-- **Input**: what is being documented
-- **Output**: what users ultimately read
+Each folder has a clearly defined responsibility:
+- **Source** – Documentation pipeline implementation
+- **Input** – Structured technical specifications
+- **Output** – Generated documentation
+- **AI Layer** – Optional editorial enhancement
 
 ------------------------------------------------------------------------
 
