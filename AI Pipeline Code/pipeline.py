@@ -117,26 +117,26 @@ if __name__ == "__main__":
 
     docs = generate_docs(spec)
 
+    # Optional AI enhancement
+    if USE_AI:
 
-if USE_AI:
+        provider = os.getenv("AI_PROVIDER", "mock")
 
-    provider = os.getenv("AI_PROVIDER", "mock")
+        try:
+            print(f"Running AI enhancement ({provider})...")
 
-    try:
-        print(f"Running AI enhancement ({provider})...")
+            docs = enhance_markdown(
+                docs,
+                provider=provider
+            )
 
-        docs = enhance_markdown(
-            docs,
-            provider=provider
-        )
+            print("AI enhancement applied.")
 
-        print("AI enhancement applied.")
+        except Exception as e:
 
-    except Exception as e:
-
-        print(
-            f"AI enhancement failed, using deterministic output: {e}"
-        )
+            print(
+                f"AI enhancement failed, using deterministic output: {e}"
+            )
 
     output_dir.mkdir(exist_ok=True)
 
