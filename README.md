@@ -30,15 +30,17 @@ APIs are used as the first example input, but the pipeline is intentionally desi
 This project is organized around three architectural layers, each responsible for a different part of turning technical input into usable documentation.
 
 ### Layer 1 — Deterministic Generation
-Reads structured technical input (starting with OpenAPI/Swagger specs) and produces a baseline Markdown document through fully deterministic, reproducible logic. No AI is involved. This layer is the source of truth throughout the project — every other layer builds on top of it, never replaces it.
+Reads structured technical input *(starting with OpenAPI/Swagger specs)* and produces a baseline Markdown document through fully deterministic, reproducible logic. No AI is involved. This layer is the source of truth throughout the project, and every other layer builds on top of it *(never replaces it)*.
 
 ### Layer 2 — AI-Assisted Enhancement
 An optional editorial layer that improves the clarity, structure, and developer experience of Layer 1's output. It does not invent or modify technical facts, can be toggled on or off, and falls back safely to Layer 1's deterministic output if it fails. This is where the project's governance philosophy lives most visibly: AI augments, it doesn't replace.
 
-### Layer 3 — Exposure & Agent Integration
-Makes the pipeline callable by AI agents and external tools, via MCP, rather than only runnable as a local script. This layer depends on Layers 1 and 2 already being solid and governed — exposing an ungoverned pipeline to autonomous agents would defeat the purpose of everything built before it.
+*(This project includes a mock AI provider for local development and demonstration purposes. The mock provider simulates an AI-assisted documentation workflow without requiring an external LLM, API keys, or paid services. This allows anyone cloning the repository to understand and execute the complete documentation pipeline while keeping the project simple, reproducible, and cost-free. When using the project in a real-world scenario, the mock provider can be replaced by an external LLM (such as OpenAI or another compatible provider) through configuration, without changing the overall pipeline architecture.)*
 
-The phased roadmap below shows how each layer is built out over time — Phases 1 and 2 establish Layers 1 and 2; Phases 3–5 extend and strengthen them (new input types, audience awareness, governance); and Phase 6 builds Layer 3 on top of that foundation.
+### Layer 3 — Exposure & Agent Integration
+Makes the pipeline callable by AI agents and external tools, via MCP, rather than only runnable as a local script. This layer depends on Layers 1 and 2 already being solid and governed; exposing an ungoverned pipeline to autonomous agents would defeat the purpose of everything built before it.
+
+The phased roadmap *(under planned progression)* later shows how each layer is built out over time. Phases 1 and 2 establish Layers 1 and 2; Phases 3–5 extend and strengthen them *(new input types, audience awareness, governance)*; and Phase 6 builds Layer 3 on top of that foundation.
 
 ------------------------------------------------------------------------
 
