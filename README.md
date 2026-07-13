@@ -187,9 +187,11 @@ in real organizations.
 
 ------------------------------------------------------------------------
 
-## AI design principles
+## AI Pipeline Architecture
 
-This project intentionally treats AI as an **augmentation layer**, not as a replacement for deterministic documentation generation.
+Rather than tightly coupling the pipeline to a single AI provider, the project separates documentation generation from AI enhancement.
+
+The pipeline supports pluggable AI enhancement layers and intentionally treats AI as an **augmentation layer** *(not as a replacement for deterministic documentation generation).* 
 
 The pipeline follows three core principles:
 
@@ -198,6 +200,10 @@ The pipeline follows three core principles:
 - **Graceful fallback** — If AI is unavailable, the deterministic documentation is still generated successfully.
 
 This architecture demonstrates a practical approach to introducing AI into technical documentation workflows while maintaining transparency, reliability, and human oversight.
+
+Also, a mock provider is included for local testing, while external LLM providers can be connected through configuration.
+
+Inspired by software engineering principles like: *abstraction, separation of concerns, avoiding vendor lock-in, safe experimentation, reproducibility*
 
 ------------------------------------------------------------------------
 
