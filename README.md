@@ -96,12 +96,12 @@ The phased progression below shows how each layer is built out over time. Phases
 - No AI
 - Focus on correctness and reproducibility
 
-### Phase 2 — AI-assisted API documentation (current)
+### Phase 2 — AI-assisted API documentation 
 - Improve clarity, structure, and examples using AI
 - AI augments the pipeline, not replaces it
 - Strong focus on developer experience (DX)
 
-### Phase 3 — Multiple input types
+### Phase 3 — Multiple input types (current)
 - Extend beyond APIs to:
   - SDKs / libraries
   - CLI tools
