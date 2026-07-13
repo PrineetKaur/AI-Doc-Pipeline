@@ -2,7 +2,7 @@ import os
 import yaml
 from pathlib import Path
 
-# Optional AI enhancer
+# Optional AI enhancement
 USE_AI = os.getenv("USE_AI", "false").lower() == "true"
 
 if USE_AI:
@@ -22,7 +22,8 @@ def load_spec(path):
 
 def generate_docs(spec):
     """
-    Generate Markdown documentation from an OpenAPI specification.
+    Generate deterministic Markdown documentation
+    from an OpenAPI specification.
     """
 
     docs = []
@@ -45,7 +46,7 @@ def generate_docs(spec):
 
     docs.append("---\n")
 
-    docs.append("# Endpoints\n")
+    docs.append("## Endpoints\n")
 
     paths = spec.get("paths", {})
 
@@ -53,9 +54,7 @@ def generate_docs(spec):
 
         for method, details in methods.items():
 
-            docs.append(
-                f"## {method.upper()} {endpoint}\n"
-            )
+            docs.append(f"### {method.upper()} {endpoint}\n")
 
             docs.append(
                 f"**Summary:** {details.get('summary', 'No summary available.')}\n"
@@ -69,25 +68,27 @@ def generate_docs(spec):
             parameters = details.get("parameters", [])
 
             if parameters:
-                docs.append("### Parameters\n")
+
+                docs.append("#### Parameters\n")
 
                 for parameter in parameters:
+
                     docs.append(
                         f"- **{parameter.get('name')}** ({parameter.get('in')})"
                     )
 
-                docs.append("\n")
+                docs.append("")
 
             if "requestBody" in details:
-                docs.append("### Request Body\n")
-                docs.append(
-                    "Request body required.\n"
-                )
+
+                docs.append("#### Request Body\n")
+                docs.append("Request body required.\n")
 
             responses = details.get("responses", {})
 
             if responses:
-                docs.append("### Responses\n")
+
+                docs.append("#### Responses\n")
 
                 for code, response in responses.items():
 
@@ -95,9 +96,9 @@ def generate_docs(spec):
                         f"- **{code}** — {response.get('description', '')}"
                     )
 
-                docs.append("\n")
+                docs.append("")
 
-            docs.append("---\n")
+            docs.append("---")
 
     return "\n".join(docs)
 
@@ -113,29 +114,33 @@ if __name__ == "__main__":
 
     spec = load_spec(spec_path)
 
-    print("Generating documentation draft...")
+    print("Generating deterministic documentation...")
 
     docs = generate_docs(spec)
 
-    # Optional AI enhancement
     if USE_AI:
 
         provider = os.getenv("AI_PROVIDER", "mock")
 
+        print(f"AI provider selected: {provider}")
+
         try:
-            print(f"Running AI enhancement ({provider})...")
 
             docs = enhance_markdown(
-                docs,
+                markdown_text=docs,
                 provider=provider
             )
 
-            print("AI enhancement applied.")
+            print("AI enhancement applied successfully.")
 
-        except Exception as e:
+        except Exception as error:
 
             print(
-                f"AI enhancement failed, using deterministic output: {e}"
+                f"AI enhancement failed ({error})."
+            )
+
+            print(
+                "Using deterministic documentation instead."
             )
 
     output_dir.mkdir(exist_ok=True)
