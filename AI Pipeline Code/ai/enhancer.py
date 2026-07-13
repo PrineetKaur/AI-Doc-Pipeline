@@ -1,21 +1,50 @@
 import os
-from openai import OpenAI
+
 from .prompts import SYSTEM_PROMPT
+from .mock_llm import enhance_with_mock
 
 
-def enhance_markdown(markdown_text: str) -> str:
+def enhance_markdown(markdown_text: str, provider: str = "mock") -> str:
     """
-    Uses an LLM as an editorial step to improve clarity and DX.
+    Routes documentation enhancement to the selected AI provider.
+
+    Supported providers:
+    - mock
+    - openai
     """
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": markdown_text}
-        ],
-        temperature=0.2
-    )
+    provider = provider.lower()
 
-    return response.choices[0].message.content
+    if provider == "mock":
+        return enhance_with_mock(markdown_text)
+
+    elif provider == "openai":
+
+        from openai import OpenAI
+
+        client = OpenAI(
+            api_key=os.getenv("OPENAI_API_KEY")
+        )
+
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": SYSTEM_PROMPT
+                },
+                {
+                    "role": "user",
+                    "content": markdown_text
+                }
+            ],
+            temperature=0.2
+        )
+
+        return response.choices[0].message.content
+
+    else:
+
+        raise ValueError(
+            f"Unsupported AI provider: {provider}"
+        )
