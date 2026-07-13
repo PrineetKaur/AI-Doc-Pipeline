@@ -156,12 +156,13 @@ common interface while the pipeline remains unchanged.
                 OpenAPI Adapter
                        │
                        ▼
-           Documentation Pipeline
+             Documentation Pipeline
                        │
                        ▼
-            AI Enhancement Layer
+             AI Enhancement Layer
                        │
-             Generated Documentation
+                       ▼
+            Generated Documentation
 ```
 
 ## Target Architecture
@@ -169,21 +170,21 @@ common interface while the pipeline remains unchanged.
 ``` text
                 Documentation Inputs
                         │
-     ┌──────────┬──────────┬──────────┬──────────┬────────────┐
+     ┌──────────┬──────────┬──────────┬──────────┐
      ▼          ▼          ▼          ▼          ▼
  OpenAPI      SDK        CLI      Config   Architecture
      │          │          │          │          │
      └──────────┴──────────┴──────────┴──────────┘
                         │
                         ▼
-             Documentation Pipeline
+              Documentation Pipeline
                         │
                         ▼
-             AI Enhancement Layer
+               AI Enhancement Layer
                         │
          ┌──────────────┴──────────────┐
          ▼                             ▼
-    Mock Provider               OpenAI Provider
+   Mock Provider                OpenAI Provider
                         │
                         ▼
              Generated Documentation
@@ -224,14 +225,14 @@ inputs/
 
 ``` text
           Documentation Pipeline
-                   │
-                   ▼
-          Canonical Documentation
-                   │
-        ┌──────────┼──────────┐
-        ▼          ▼          ▼
- Developer     Product     Support
- Documentation Documentation Documentation
+                    │
+                    ▼
+         Canonical Documentation
+                    │
+         ┌──────────┼──────────┐
+         ▼          ▼          ▼
+    Developer    Product    Support
+Documentation Documentation Documentation
 ```
 
 ------------------------------------------------------------------------
@@ -243,19 +244,19 @@ inputs/
 ## Architecture
 
 ``` text
-Documentation
-       │
-       ▼
-Validation
-       │
-       ▼
-Quality Metrics
-       │
-       ▼
-CI/CD Pipeline
-       │
-       ▼
-Published Documentation
+      Documentation
+            │
+            ▼
+       Validation
+            │
+            ▼
+     Quality Metrics
+            │
+            ▼
+     CI/CD Pipeline
+            │
+            ▼
+  Published Documentation
 ```
 
 ------------------------------------------------------------------------
@@ -264,35 +265,35 @@ Published Documentation
 
 ``` text
                         Documentation Sources
-   ┌──────────┬──────────┬──────────┬──────────────┬──────────────┐
-   ▼          ▼          ▼          ▼              ▼
- OpenAPI     SDK        CLI      Config      Architecture
-   │          │          │          │              │
-   └──────────┴──────────┴──────────┴──────────────┘
-                         │
-                         ▼
-              Documentation Pipeline
-                         │
-         ┌───────────────┴───────────────┐
-         ▼                               ▼
-  Deterministic Generator         Validation Layer
-         │                               │
-         └───────────────┬───────────────┘
-                         ▼
-                  Markdown Draft
-                         │
-                         ▼
-                 AI Enhancement Layer
-         ┌───────────────┴────────────────┐
-         ▼                                ▼
-    Mock Provider                   OpenAI Provider
-                         │
-                         ▼
-              Audience Generation
-         ┌───────────────┼───────────────┐
-         ▼               ▼               ▼
-     Developers      Product Team    Support Team
-                         │
-                         ▼
-               Final Documentation Set
+          ┌──────────┬──────────┬───────────┬────────────┐
+          ▼          ▼          ▼           ▼            ▼
+       OpenAPI      SDK        CLI        Config    Architecture
+         │           │          │           │            │
+         └───────────┴──────────┴───────────┴────────────┘
+                                │
+                                ▼
+                      Documentation Pipeline
+                                │
+                ┌───────────────┴───────────────┐
+                ▼                               ▼
+      Deterministic Generator             Validation Layer
+                │                               │
+                └───────────────┬───────────────┘
+                                ▼
+                          Markdown Draft
+                                │
+                                ▼
+                       AI Enhancement Layer
+                ┌───────────────┴────────────────┐
+                ▼                                ▼
+          Mock Provider                   OpenAI Provider
+                                │
+                                ▼
+                        Audience Generation
+                ┌───────────────┼───────────────┐
+                ▼               ▼               ▼
+           Developers      Product Team    Support Team
+                                │
+                                ▼
+                     Final Documentation Set
 ```
