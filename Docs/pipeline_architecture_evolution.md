@@ -22,7 +22,7 @@ a new architectural capability while preserving previous functionality.
 
 ------------------------------------------------------------------------
 
-## Phase 1 --- Deterministic Documentation Generation
+## Phase 1 - Deterministic Documentation Generation
 
 **Status:** ✅ Completed
 
@@ -71,7 +71,7 @@ Generated Docs/api.md
 
 ------------------------------------------------------------------------
 
-## Phase 2 --- AI Augmentation Layer
+## Phase 2 - AI Augmentation Layer
 
 **Status:** ✅ Completed
 
@@ -133,7 +133,7 @@ ai/
 
 ------------------------------------------------------------------------
 
-## Phase 3 --- Multi-Source Documentation Platform
+## Phase 3 - Multi-Source Documentation Platform
 
 **Status:** 🚧 In Progress
 
@@ -217,7 +217,7 @@ inputs/
 
 ------------------------------------------------------------------------
 
-## Phase 4 --- Audience-Aware Documentation
+## Phase 4 - Audience-Aware Documentation
 
 **Status:** 📋 Planned
 
@@ -237,7 +237,7 @@ Documentation Documentation Documentation
 
 ------------------------------------------------------------------------
 
-## Phase 5 --- Documentation Quality & Automation
+## Phase 5 - Documentation Quality & Automation
 
 **Status:** 📋 Planned
 
