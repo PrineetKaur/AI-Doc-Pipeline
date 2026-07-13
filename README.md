@@ -52,7 +52,8 @@ ai-doc-pipeline/
 │   └── ai/
 │       ├── __init__.py
 │       ├── enhancer.py          # AI editor logic
-│       └── prompts.py           # Controlled AI instructions
+│       ├── prompts.py           # Controlled AI instructions
+│       └── mock_llm.py          # Local Mock AI (if you dont want to use external LLM)
 │
 ├── API Specs/                   # INPUT: structured technical specs
 │   └── payments_api.yaml
@@ -123,6 +124,8 @@ The phased progression below shows how each layer is built out over time. Phases
 - Add a `check_doc_drift` tool, building on the drift and ambiguity detection established in Phase 5
 - Optionally, a lightweight Claude Skill that orchestrates these tools for common documentation tasks
 - Makes the pipeline callable by AI agents and external MCP clients, not just runnable as a local script
+
+Final Output: An end-to-end documentation pipeline with AI augmentation layer that is provider-agnostic. The pipeline can operate with a deterministic implementation, a local mock implementation for reproducible testing, or an external LLM provider without changing the surrounding system.
 
 ------------------------------------------------------------------------
 
