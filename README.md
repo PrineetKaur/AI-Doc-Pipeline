@@ -38,7 +38,7 @@ An optional editorial layer that improves the clarity, structure, and developer 
 ### Layer 3 — Exposure & Agent Integration
 Makes the pipeline callable by AI agents and external tools, via MCP, rather than only runnable as a local script. This layer depends on Layers 1 and 2 already being solid and governed; exposing an ungoverned pipeline to autonomous agents would defeat the purpose of everything built before it.
 
-To Note: *Phase 2 uses a mock AI provider for local development and demonstration purposes. The mock provider simulates an AI-assisted documentation workflow without requiring an external LLM, API keys, or paid services. This allows anyone cloning the repository to understand and execute the complete documentation pipeline while keeping the project simple, reproducible, and cost-free. When using the project in a real-world scenario, the mock provider can be replaced by an external LLM (such as OpenAI or another compatible provider) through configuration, without changing the overall pipeline architecture.*
+**To Note:** *Phase 2 uses a mock AI provider for local development and demonstration purposes. The mock provider simulates an AI-assisted documentation workflow without requiring an external LLM, API keys, or paid services. This allows anyone cloning the repository to understand and execute the complete documentation pipeline while keeping the project simple, reproducible, and cost-free. When using the project in a real-world scenario, the mock provider can be replaced by an external LLM (such as OpenAI or another compatible provider) through configuration, without changing the overall pipeline architecture.*
 
 ------------------------------------------------------------------------
 
