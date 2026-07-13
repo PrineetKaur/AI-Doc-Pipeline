@@ -201,9 +201,9 @@ The pipeline follows three core principles:
 
 This architecture demonstrates a practical approach to introducing AI into technical documentation workflows while maintaining transparency, reliability, and human oversight.
 
-Also, a mock provider is included for local testing, while external LLM providers can be connected through configuration.
+Also, a mock provider is included for local testing, while external LLM providers can be connected through configuration. The AI Interface doesn't know whether it is talking to *OpenAI, Claude, Gemini, Ollama, or a Mock AI*
 
-Inspired by software engineering principles like: *abstraction, separation of concerns, avoiding vendor lock-in, safe experimentation, reproducibility*
+Inspired by popular software engineering principles like: *abstraction, separation of concerns, avoiding vendor lock-in, safe experimentation, reproducibility*
 
 ------------------------------------------------------------------------
 
