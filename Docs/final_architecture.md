@@ -1,7 +1,5 @@
 # Final Pipeline Architecture 
 
-> **Project:** AI-Doc-Pipeline
-
 ## Overview
 
 AI-Doc-Pipeline is a modular documentation platform that transforms
