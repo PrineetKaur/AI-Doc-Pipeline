@@ -40,12 +40,12 @@ deterministic parser.
 
 ``` text
           OpenAPI Specification
-                   │
-                   ▼
-        Deterministic Generator
-                   │
-                   ▼
-          Markdown Documentation
+                    │
+                    ▼
+         Deterministic Generator
+                    │
+                    ▼
+         Markdown Documentation
 ```
 
 ## Design Decisions
@@ -89,23 +89,23 @@ generation while keeping deterministic output as the source of truth.
 
 ``` text
              OpenAPI Specification
-                     │
-                     ▼
+                       │
+                       ▼
       Deterministic Documentation Generator
-                     │
-                     ▼
-              Markdown Draft
-                     │
-                     ▼
-            AI Enhancement Layer
-                     │
-         ┌───────────┴───────────┐
-         ▼                       ▼
-  Mock AI Provider       OpenAI Provider
-         │                       │
-         └───────────┬───────────┘
-                     ▼
-          Enhanced Markdown Output
+                       │
+                       ▼
+                Markdown Draft
+                       │
+                       ▼
+              AI Enhancement Layer
+                       │
+           ┌───────────┴───────────┐
+           ▼                       ▼
+    Mock AI Provider        OpenAI Provider
+           │                       │
+           └───────────┬───────────┘
+                       ▼
+           Enhanced Markdown Output
 ```
 
 ## Design Decisions
@@ -150,7 +150,7 @@ common interface while the pipeline remains unchanged.
 ## Current Architecture
 
 ``` text
-               OpenAPI Specification
+             OpenAPI Specification
                        │
                        ▼
                 OpenAPI Adapter
@@ -159,7 +159,7 @@ common interface while the pipeline remains unchanged.
              Documentation Pipeline
                        │
                        ▼
-             AI Enhancement Layer
+              AI Enhancement Layer
                        │
                        ▼
             Generated Documentation
@@ -168,26 +168,26 @@ common interface while the pipeline remains unchanged.
 ## Target Architecture
 
 ``` text
-                Documentation Inputs
-                        │
+                  Documentation Inputs
+                           │
      ┌──────────┬──────────┬──────────┬──────────┐
      ▼          ▼          ▼          ▼          ▼
  OpenAPI      SDK        CLI      Config   Architecture
      │          │          │          │          │
      └──────────┴──────────┴──────────┴──────────┘
-                        │
-                        ▼
-              Documentation Pipeline
-                        │
-                        ▼
-               AI Enhancement Layer
-                        │
-         ┌──────────────┴──────────────┐
-         ▼                             ▼
-   Mock Provider                OpenAI Provider
-                        │
-                        ▼
-             Generated Documentation
+                           │
+                           ▼
+                 Documentation Pipeline
+                           │
+                           ▼
+                 AI Enhancement Layer
+                           │
+            ┌──────────────┴──────────────┐
+            ▼                             ▼
+     Mock Provider                 OpenAI Provider
+                           │
+                           ▼
+                Generated Documentation
 ```
 
 ## Design Decisions
@@ -244,18 +244,18 @@ Documentation Documentation Documentation
 ## Architecture
 
 ``` text
-      Documentation
-            │
-            ▼
-       Validation
-            │
-            ▼
-     Quality Metrics
-            │
-            ▼
-     CI/CD Pipeline
-            │
-            ▼
+       Documentation
+             │
+             ▼
+        Validation
+             │
+             ▼
+      Quality Metrics
+             │
+             ▼
+      CI/CD Pipeline
+             │
+             ▼
   Published Documentation
 ```
 
