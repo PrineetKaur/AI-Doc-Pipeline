@@ -6,25 +6,41 @@ from .mock_llm import enhance_with_mock
 
 def enhance_markdown(markdown_text: str, provider: str = "mock") -> str:
     """
-    Routes documentation enhancement to the selected AI provider.
+    Enhance generated Markdown using the selected AI provider.
 
     Supported providers:
-    - mock
+    - mock (default)
     - openai
     """
 
-    provider = provider.lower()
+    provider = provider.lower().strip()
 
+    # -----------------------------
+    # Mock provider
+    # -----------------------------
     if provider == "mock":
+
+        print("Using mock AI provider.")
+
         return enhance_with_mock(markdown_text)
 
-    elif provider == "openai":
+    # -----------------------------
+    # OpenAI provider
+    # -----------------------------
+    if provider == "openai":
+
+        print("Using OpenAI provider.")
+
+        api_key = os.getenv("OPENAI_API_KEY")
+
+        if not api_key:
+            raise ValueError(
+                "OPENAI_API_KEY environment variable is not set."
+            )
 
         from openai import OpenAI
 
-        client = OpenAI(
-            api_key=os.getenv("OPENAI_API_KEY")
-        )
+        client = OpenAI(api_key=api_key)
 
         response = client.chat.completions.create(
             model="gpt-4o-mini",
@@ -43,8 +59,9 @@ def enhance_markdown(markdown_text: str, provider: str = "mock") -> str:
 
         return response.choices[0].message.content
 
-    else:
-
-        raise ValueError(
-            f"Unsupported AI provider: {provider}"
-        )
+    # -----------------------------
+    # Unknown provider
+    # -----------------------------
+    raise ValueError(
+        f"Unsupported AI provider: '{provider}'"
+    )
