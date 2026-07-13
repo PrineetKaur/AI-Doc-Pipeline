@@ -18,7 +18,7 @@ def main():
 
     spec_path = "API Specs/payments_api.yaml"
 
-    output_dir = Path("Generated Docs")
+    output_dir = Path("Generated Documentation")
     output_file = output_dir / "api.md"
 
 
