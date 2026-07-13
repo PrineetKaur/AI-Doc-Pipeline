@@ -1,4 +1,4 @@
-# Architecture
+# Final Pipeline Architecture 
 
 > **Project:** AI-Doc-Pipeline
 
@@ -18,39 +18,39 @@ The architecture emphasizes:
 
 ------------------------------------------------------------------------
 
-# High-Level Architecture
+## High-Level Architecture
 
 ``` text
-                Documentation Sources
-   ┌──────────┬──────────┬──────────┬──────────────┬──────────────┐
-   ▼          ▼          ▼          ▼              ▼
- OpenAPI     SDK        CLI      Config      Architecture
-   │          │          │          │              │
-   └──────────┴──────────┴──────────┴──────────────┘
-                         │
-                         ▼
-              Documentation Pipeline
-                         │
-              Deterministic Generator
-                         │
-                         ▼
-                  Markdown Draft
-                         │
-                         ▼
-                 AI Enhancement Layer
-         ┌───────────────┴────────────────┐
-         ▼                                ▼
-    Mock Provider                   OpenAI Provider
-                         │
-                         ▼
-               Final Documentation
+                      Documentation Sources
+        ┌──────────┬──────────┬──────────┬───────────┐
+        ▼          ▼          ▼          ▼           ▼
+     OpenAPI      SDK        CLI       Config   Architecture
+        │          │          │          │           │
+        └──────────┴──────────┴──────────┴───────────┘
+                              │
+                              ▼
+                    Documentation Pipeline
+                              │
+                   Deterministic Generator
+                              │
+                              ▼
+                       Markdown Draft
+                              │
+                              ▼
+                     AI Enhancement Layer
+              ┌───────────────┴────────────────┐
+              ▼                                ▼
+        Mock Provider                   OpenAI Provider
+                              │
+                              ▼
+                     Final Documentation
 ```
 
 ------------------------------------------------------------------------
 
-# Core Components
+## Core Components
 
-## Documentation Input Adapters
+### Documentation Input Adapters
 
 Each documentation source is encapsulated behind a dedicated adapter
 responsible for parsing and converting its input into a common
@@ -62,7 +62,7 @@ Planned: - SDK - CLI - Configuration - Architecture
 
 ------------------------------------------------------------------------
 
-## Documentation Pipeline
+### Documentation Pipeline
 
 The pipeline orchestrates the documentation workflow.
 
@@ -77,7 +77,7 @@ The pipeline remains independent of individual documentation formats.
 
 ------------------------------------------------------------------------
 
-## Deterministic Generator
+### Deterministic Generator
 
 The deterministic generator produces reproducible Markdown from
 structured inputs.
@@ -90,7 +90,7 @@ Properties:
 
 ------------------------------------------------------------------------
 
-## AI Enhancement Layer
+### AI Enhancement Layer
 
 The AI layer performs editorial improvements after deterministic
 generation.
@@ -104,24 +104,7 @@ Additional providers can be introduced without changing the pipeline.
 
 ------------------------------------------------------------------------
 
-# Repository Structure
-
-``` text
-AI-Doc-Pipeline/
-├── AI Pipeline Code/
-│   ├── ai/
-│   ├── inputs/
-│   └── pipeline.py
-├── API Specs/
-├── Generated Docs/
-├── docs/
-├── README.md
-└── requirements.txt
-```
-
-------------------------------------------------------------------------
-
-# Design Principles
+## Design Principles Followed
 
 -   Separation of Concerns
 -   Single Responsibility
@@ -133,7 +116,7 @@ AI-Doc-Pipeline/
 
 ------------------------------------------------------------------------
 
-# Future Extensions
+## Future Extensions
 
 -   Additional documentation input adapters
 -   Audience-specific documentation generation
@@ -143,7 +126,7 @@ AI-Doc-Pipeline/
 
 ------------------------------------------------------------------------
 
-# Summary
+## Summary
 
 The architecture is intentionally modular so that new documentation
 sources, AI providers, and output formats can be introduced with minimal
