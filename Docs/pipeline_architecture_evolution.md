@@ -1,8 +1,6 @@
 # Pipeline Architecture Evolution
 
-> **Project:** AI-Doc-Pipeline\
-> **Purpose:** Document the architectural evolution of the documentation
-> pipeline throughout the project lifecycle.
+> **Purpose:** Document the architectural evolution of the documentation pipeline throughout the project lifecycle.
 
 ------------------------------------------------------------------------
 
