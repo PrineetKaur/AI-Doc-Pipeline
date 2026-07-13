@@ -40,7 +40,7 @@ deterministic parser.
           OpenAPI Specification
                     │
                     ▼
-          Deterministic Generator
+         Deterministic Generator
                     │
                     ▼
           Markdown Documentation
