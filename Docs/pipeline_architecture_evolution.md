@@ -6,7 +6,7 @@
 
 ------------------------------------------------------------------------
 
-# Project Vision
+## Project Vision
 
 The objective of AI-Doc-Pipeline is not to build a tool that simply
 converts OpenAPI specifications into Markdown.
@@ -22,21 +22,21 @@ a new architectural capability while preserving previous functionality.
 
 ------------------------------------------------------------------------
 
-# Phase 1 --- Deterministic Documentation Generation
+## Phase 1 --- Deterministic Documentation Generation
 
 **Status:** ✅ Completed
 
-## Problem
+### Problem
 
 Technical documentation is frequently written manually, making it
 difficult to keep documentation synchronized with API specifications.
 
-## Solution
+### Solution
 
 Generate documentation directly from an OpenAPI specification using a
 deterministic parser.
 
-## Architecture
+### Architecture
 
 ``` text
           OpenAPI Specification
@@ -48,14 +48,14 @@ deterministic parser.
          Markdown Documentation
 ```
 
-## Design Decisions
+### Design Decisions
 
 -   Deterministic generation ensures reproducible output.
 -   Documentation is generated directly from the specification.
 -   No external services are required.
 -   The generated documentation becomes the single source of truth.
 
-## Files Introduced
+### Files Introduced
 
 ``` text
 pipeline.py
@@ -63,7 +63,7 @@ payments_api.yaml
 Generated Docs/api.md
 ```
 
-## Key Takeaways
+### Key Takeaways
 
 -   Deterministic systems are predictable and reproducible.
 -   API specifications can serve as documentation sources.
@@ -71,21 +71,21 @@ Generated Docs/api.md
 
 ------------------------------------------------------------------------
 
-# Phase 2 --- AI Augmentation Layer
+## Phase 2 --- AI Augmentation Layer
 
 **Status:** ✅ Completed
 
-## Problem
+### Problem
 
 Deterministic documentation is technically correct but often lacks
 readability and editorial refinement.
 
-## Solution
+### Solution
 
 Introduce an optional AI enhancement layer after deterministic
 generation while keeping deterministic output as the source of truth.
 
-## Architecture
+### Architecture
 
 ``` text
              OpenAPI Specification
@@ -108,7 +108,7 @@ generation while keeping deterministic output as the source of truth.
            Enhanced Markdown Output
 ```
 
-## Design Decisions
+### Design Decisions
 
 -   AI is optional.
 -   Deterministic generation remains authoritative.
@@ -116,7 +116,7 @@ generation while keeping deterministic output as the source of truth.
 -   Mock provider enables reproducible local development.
 -   External providers can be connected through configuration.
 
-## Files Introduced
+### Files Introduced
 
 ``` text
 ai/
@@ -125,7 +125,7 @@ ai/
     prompts.py
 ```
 
-## Key Takeaways
+### Key Takeaways
 
 -   AI enhances deterministic systems instead of replacing them.
 -   Provider abstraction enables flexibility.
@@ -133,21 +133,21 @@ ai/
 
 ------------------------------------------------------------------------
 
-# Phase 3 --- Multi-Source Documentation Platform
+## Phase 3 --- Multi-Source Documentation Platform
 
 **Status:** 🚧 In Progress
 
-## Problem
+### Problem
 
 A pipeline tightly coupled to OpenAPI cannot easily support additional
 documentation sources.
 
-## Solution
+### Solution
 
 Introduce input adapters so every documentation source implements a
 common interface while the pipeline remains unchanged.
 
-## Current Architecture
+### Current Architecture
 
 ``` text
              OpenAPI Specification
@@ -165,7 +165,7 @@ common interface while the pipeline remains unchanged.
             Generated Documentation
 ```
 
-## Target Architecture
+### Target Architecture
 
 ``` text
                   Documentation Inputs
@@ -190,13 +190,13 @@ common interface while the pipeline remains unchanged.
                 Generated Documentation
 ```
 
-## Design Decisions
+### Design Decisions
 
 -   Separate orchestration from parsing.
 -   Introduce source-specific adapters.
 -   Keep the pipeline source-agnostic.
 
-## Files Introduced
+### Files Introduced
 
 Current:
 
@@ -217,11 +217,11 @@ inputs/
 
 ------------------------------------------------------------------------
 
-# Phase 4 --- Audience-Aware Documentation
+## Phase 4 --- Audience-Aware Documentation
 
 **Status:** 📋 Planned
 
-## Architecture
+### Architecture
 
 ``` text
           Documentation Pipeline
@@ -237,11 +237,11 @@ Documentation Documentation Documentation
 
 ------------------------------------------------------------------------
 
-# Phase 5 --- Documentation Quality & Automation
+## Phase 5 --- Documentation Quality & Automation
 
 **Status:** 📋 Planned
 
-## Architecture
+### Architecture
 
 ``` text
        Documentation
@@ -261,15 +261,15 @@ Documentation Documentation Documentation
 
 ------------------------------------------------------------------------
 
-# Final Target Architecture
+## Final Target Architecture
 
 ``` text
                         Documentation Sources
           ┌──────────┬──────────┬───────────┬────────────┐
           ▼          ▼          ▼           ▼            ▼
        OpenAPI      SDK        CLI        Config    Architecture
-         │           │          │           │            │
-         └───────────┴──────────┴───────────┴────────────┘
+          │          │          │           │            │
+          └──────────┴──────────┴───────────┴────────────┘
                                 │
                                 ▼
                       Documentation Pipeline
