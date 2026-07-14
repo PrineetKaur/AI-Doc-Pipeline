@@ -58,11 +58,15 @@ ai-doc-pipeline/
 ├── API Specs/                   # INPUT: structured technical specs
 │   └── payments_api.yaml
 │
-├── Generated Documentation/              # OUTPUT: generated documentation
+├── Docs/
+│   ├── final_architecture.md
+│   └── pipeline_architecture_evolution.md
+│
+├── Generated Documentation/     # OUTPUT: generated documentation
 │   ├── .gitkeep
 │   └── api.md
 │
-├── mcp_server/                  # PLANNED (Phase 6): MCP tool exposure layer
+├── MCP Server/                  # PLANNED (Phase 6): MCP tool exposure layer
 │   ├── server.py
 │   └── tools/
 │       ├── parse_spec.py
