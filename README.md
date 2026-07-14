@@ -53,12 +53,12 @@ ai-doc-pipeline/
 │       ├── __init__.py
 │       ├── enhancer.py          # AI editor logic
 │       ├── prompts.py           # Controlled AI instructions
-│       └── mock_llm.py          # Local Mock AI (if you dont want to use external LLM)
+│       └── mock_llm.py          # Local Mock AI (if you don't want to use an external LLM)
 │
 ├── API Specs/                   # INPUT: structured technical specs
 │   └── payments_api.yaml
 │
-├── Generated Docs/              # OUTPUT: generated documentation
+├── Generated Documentation/              # OUTPUT: generated documentation
 │   ├── .gitkeep
 │   └── api.md
 │
@@ -155,7 +155,7 @@ python3 "AI Pipeline Code/pipeline.py"
 ```
 
 After running:
-- A Markdown file is generated inside `Generated Docs/`
+- A Markdown file is generated inside `Generated Documentation/`
 - The output can be reviewed, committed, and published (by you or AI, depending on whether you turn on AI)
 
 To Note: 
