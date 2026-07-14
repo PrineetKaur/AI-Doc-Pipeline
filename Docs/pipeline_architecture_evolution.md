@@ -58,7 +58,7 @@ deterministic parser.
 ``` text
 pipeline.py
 payments_api.yaml
-Generated Docs/api.md
+Generated Documentation/api.md
 ```
 
 ### Key Takeaways
