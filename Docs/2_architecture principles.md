@@ -5,7 +5,7 @@
 
 ---
 
-# Introduction
+## Introduction
 
 AI-Doc-Pipeline is designed as a modular documentation platform rather than a simple documentation generator.
 
@@ -15,40 +15,40 @@ These principles ensure that new capabilities can be introduced without compromi
 
 ---
 
-# Principle 1 — Deterministic First
+## Principle 1 — Deterministic First
 
-## Philosophy
+### Philosophy
 
 Documentation generation should always begin with a deterministic process.
 
 Structured inputs should produce predictable outputs regardless of external services.
 
-## Why
+### Why
 
 * Reproducible results
 * Easier debugging
 * Consistent documentation
 * Reliable testing
 
-## Application
+### Application
 
 The pipeline first converts structured documentation sources into Markdown before any optional AI processing occurs.
 
 ---
 
-# Principle 2 — AI as an Enhancement Layer
+## Principle 2 — AI as an Enhancement Layer
 
-## Philosophy
+### Philosophy
 
 Artificial Intelligence should improve documentation—not generate the entire documentation pipeline.
 
-## Why
+### Why
 
 * Deterministic output remains the source of truth.
 * AI focuses on editorial improvements.
 * AI failures never prevent documentation generation.
 
-## Application
+### Application
 
 The AI enhancement layer operates only after deterministic documentation has been generated.
 
@@ -64,17 +64,17 @@ Deterministic Documentation
 
 ---
 
-# Principle 3 — Separation of Concerns
+## Principle 3 — Separation of Concerns
 
-## Philosophy
+### Philosophy
 
 Each component should have a single responsibility.
 
-## Why
+### Why
 
 Small, focused components are easier to understand, maintain, and extend.
 
-## Application
+### Application
 
 * Input adapters parse documentation sources.
 * The pipeline orchestrates execution.
@@ -85,20 +85,20 @@ No component performs multiple unrelated responsibilities.
 
 ---
 
-# Principle 4 — Provider Independence
+## Principle 4 — Provider Independence
 
-## Philosophy
+### Philosophy
 
 The pipeline should never depend on a single AI provider.
 
-## Why
+### Why
 
 * Avoid vendor lock-in
 * Simplify experimentation
 * Support future providers
 * Improve long-term maintainability
 
-## Application
+### Application
 
 The AI enhancement layer communicates through a common abstraction rather than directly with a specific provider.
 
@@ -111,28 +111,28 @@ Additional providers can be introduced without modifying the pipeline.
 
 ---
 
-# Principle 5 — Extensibility Through Adapters
+## Principle 5 — Extensibility Through Adapters
 
-## Philosophy
+### Philosophy
 
 New documentation sources should be added without changing the pipeline.
 
-## Why
+### Why
 
 The orchestration logic should remain stable as the platform grows.
 
-## Application
+### Application
 
 Documentation inputs are isolated behind adapters.
 
 ```
-OpenAPI
-SDK
-CLI
-Configuration
-Architecture
-      │
-      ▼
+      OpenAPI
+        SDK
+        CLI
+   Configuration
+    Architecture
+         │
+         ▼
 Documentation Pipeline
 ```
 
@@ -140,36 +140,36 @@ Each adapter is responsible only for translating its source into a common docume
 
 ---
 
-# Principle 6 — Reproducible Development
+## Principle 6 — Reproducible Development
 
-## Philosophy
+### Philosophy
 
 Developers should be able to work on the project without requiring external services.
 
-## Why
+### Why
 
 * Lower development cost
 * Faster iteration
 * Offline development
 * Consistent demonstrations
 
-## Application
+### Application
 
 The project includes a mock AI provider that simulates the AI enhancement workflow without requiring API keys.
 
 ---
 
-# Principle 7 — Progressive Architecture
+## Principle 7 — Progressive Architecture
 
-## Philosophy
+### Philosophy
 
 Architectures should evolve through incremental improvements instead of complete rewrites.
 
-## Why
+### Why
 
 Incremental evolution reduces technical risk while preserving existing functionality.
 
-## Application
+### Application
 
 The project evolves through clearly defined phases:
 
@@ -183,17 +183,17 @@ Each phase introduces one major architectural capability.
 
 ---
 
-# Principle 8 — Documentation as Code
+## Principle 8 — Documentation as Code
 
-## Philosophy
+### Philosophy
 
 Documentation should be treated as an engineering artifact.
 
-## Why
+### Why
 
 Documentation should benefit from the same engineering practices applied to software.
 
-## Application
+### Application
 
 * Version controlled
 * Automatically generated
@@ -203,17 +203,17 @@ Documentation should benefit from the same engineering practices applied to soft
 
 ---
 
-# Principle 9 — Modularity
+## Principle 9 — Modularity
 
-## Philosophy
+### Philosophy
 
 Components should be loosely coupled and independently replaceable.
 
-## Why
+### Why
 
 A modular architecture enables future enhancements with minimal impact on existing functionality.
 
-## Application
+### Application
 
 Independent modules include:
 
@@ -227,23 +227,70 @@ Each module communicates through well-defined interfaces.
 
 ---
 
-# Principle 10 — Scalability Through Composition
+## Principle 10 — Scalability Through Composition
 
-## Philosophy
+### Philosophy
 
 The platform should grow by composing new capabilities rather than modifying existing ones.
 
-## Why
+### Why
 
 Composition improves maintainability and reduces the likelihood of introducing regressions.
 
-## Application
+### Application
 
 Future capabilities such as validation, audience generation, localization, or publishing can be integrated as additional pipeline stages instead of replacing existing components.
 
 ---
 
-# Summary
+## Principle 11 — Open for Extension, Closed for Modification
+
+### Philosophy
+
+The core documentation pipeline should remain stable as new documentation sources are introduced.
+
+Rather than modifying the pipeline whenever a new source is supported, the system should allow new capabilities to be added through extension.
+
+### Why
+
+This approach:
+
+- Reduces the risk of introducing regressions.
+- Improves maintainability.
+- Encourages modular design.
+- Supports long-term scalability.
+
+### Application
+
+AI-Doc-Pipeline achieves this through input adapters.
+
+Each new documentation source implements the same interface while the pipeline remains unchanged.
+
+```text
+            OpenAPI
+              │
+            SDK
+              │
+            CLI
+              │
+         Configuration
+              │
+        Architecture Docs
+              │
+              ▼
+        Input Adapter
+              │
+              ▼
+      Documentation Pipeline
+```
+
+Adding support for a new documentation source requires creating a new adapter rather than modifying the pipeline itself.
+
+This follows the **Open/Closed Principle**, one of the SOLID design principles: software entities should be **open for extension but closed for modification**.
+
+---
+
+## Summary
 
 The architecture of AI-Doc-Pipeline is guided by ten core principles:
 
