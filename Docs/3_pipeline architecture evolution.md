@@ -122,85 +122,126 @@ ai/
 
 ------------------------------------------------------------------------
 
-## Phase 3 - Multi-Source Documentation Platform
+## Phase 3 - Decoupling the Pipeline from Documentation Sources
 
 **Status:** 🚧 In Progress
 
 ### Problem
 
-A pipeline tightly coupled to OpenAPI cannot easily support additional documentation sources.
+The documentation pipeline was tightly coupled to a single documentation source.
+
+Although the system successfully generated documentation from OpenAPI specifications, the orchestration layer had direct knowledge of the input format. Supporting additional documentation sources would require modifying the pipeline itself, making the architecture increasingly difficult to extend and maintain.
 
 ### Solution
 
-Introduce input adapters so every documentation source implements a common interface while the pipeline remains unchanged.
+Introduce an adapter-based architecture that separates documentation parsing from pipeline orchestration.
+
+Rather than depending on a specific documentation source, the pipeline depends on a common input abstraction. Each documentation source becomes responsible for translating its own structure into a unified format understood by the pipeline.
+
+This transforms the pipeline from a source-specific implementation into a source-agnostic platform.
 
 ### Current Architecture
 
-``` text
-             OpenAPI Specification
-                       │
-                       ▼
-                OpenAPI Adapter
-                       │
-                       ▼
-             Documentation Pipeline
-                       │
-                       ▼
-              AI Enhancement Layer
-                       │
-                       ▼
-            Generated Documentation
+```text
+          OpenAPI Specification
+                    │
+                    ▼
+          Documentation Pipeline
+                    │
+                    ▼
+          Deterministic Generator
+                    │
+                    ▼
+           AI Enhancement Layer
+                    │
+                    ▼
+         Generated Documentation
+```
+
+### Architectural Refactor
+
+```text
+           Documentation Source
+                    │
+                    ▼
+              Input Adapter
+                    │
+                    ▼
+          Documentation Pipeline
+                    │
+                    ▼
+         Deterministic Generator
+                    │
+                    ▼
+          AI Enhancement Layer
+                    │
+                    ▼
+         Generated Documentation
 ```
 
 ### Target Architecture
 
-``` text
-                  Documentation Inputs
-                           │
-     ┌──────────┬──────────┬──────────┬──────────┐
-     ▼          ▼          ▼          ▼          ▼
- OpenAPI      SDK        CLI      Config   Architecture
-     │          │          │          │          │
-     └──────────┴──────────┴──────────┴──────────┘
-                           │
-                           ▼
-                 Documentation Pipeline
-                           │
-                           ▼
-                 AI Enhancement Layer
-                           │
-            ┌──────────────┴──────────────┐
-            ▼                             ▼
-     Mock Provider                 OpenAI Provider
-                           │
-                           ▼
-                Generated Documentation
+```text
+                 Documentation Sources
+
+              OpenAPI    SDK      CLI
+                 │        │        │
+                 ▼        ▼        ▼
+              OpenAPI    SDK      CLI
+              Adapter  Adapter   Adapter
+                 │        │        │
+                 └────────┴────────┘
+                          │
+                          ▼
+                Documentation Pipeline
+                          │
+                          ▼
+               Deterministic Generator
+                          │
+                          ▼
+                AI Enhancement Layer
+               ┌──────────┴──────────┐
+               ▼                     ▼
+         Mock Provider        OpenAI Provider
+                          │
+                          ▼
+               Generated Documentation
 ```
 
 ### Design Decisions
 
--   Separate orchestration from parsing.
--   Introduce source-specific adapters.
--   Keep the pipeline source-agnostic.
+- Decouple pipeline orchestration from documentation parsing.
+- Introduce source-specific adapters behind a common interface.
+- Keep the pipeline independent of documentation source formats.
+- Enable new documentation sources without modifying the pipeline.
+- Apply the Open/Closed Principle by extending the system through adapters rather than changing the orchestration layer.
 
 ### Files Introduced
 
-Current:
+Current
 
-``` text
+```text
 inputs/
+    base.py
     openapi.py
 ```
 
-Planned:
+Planned
 
-``` text
+```text
 inputs/
     sdk.py
     cli.py
     config.py
     architecture.py
 ```
+
+### Key Takeaways
+
+- The pipeline becomes source-agnostic.
+- New documentation sources are introduced through adapters.
+- The orchestration layer remains stable as the platform evolves.
+- Architectural extensibility is achieved through abstraction rather than modification.
 
 ------------------------------------------------------------------------
 
@@ -248,7 +289,7 @@ Documentation Documentation Documentation
 
 ------------------------------------------------------------------------
 
-## Final Target Architecture
+## Long-Term Platform Architecture
 
 ``` text
                         Documentation Sources
