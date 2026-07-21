@@ -1,6 +1,6 @@
 # Final Pipeline Architecture 
 
-## Overview
+
 
 AI-Doc-Pipeline is a modular documentation platform that transforms
 technical inputs into structured documentation through a deterministic
