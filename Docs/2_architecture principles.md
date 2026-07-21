@@ -53,13 +53,13 @@ Artificial Intelligence should improve documentation—not generate the entire d
 The AI enhancement layer operates only after deterministic documentation has been generated.
 
 ```
-Deterministic Documentation
-            │
-            ▼
+  Deterministic Documentation
+             │
+             ▼
     AI Enhancement Layer
-            │
-            ▼
- Enhanced Documentation
+             │
+             ▼
+   Enhanced Documentation
 ```
 
 ---
