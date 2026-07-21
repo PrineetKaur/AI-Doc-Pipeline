@@ -2,11 +2,9 @@
 
 This repository is a progressive, hands-on project focused on building **Efficient AI-Assisted Doc Pipelines**.
 
-The goal is not to showcase a finished AI product, but to demonstrate **How AI Systems Should Evolve** _(starting from basic automation and gradually incorporating AI in a controlled, explainable way.)_
+The goal is not to showcase a finished AI product, but to demonstrate **How AI Systems Should Evolve** _(starting from basic automation then gradually incorporating AI in a controlled, explainable way and emphasizing architectural evolution over feature accumulation; demonstrating how a focused tool can progressively become an extensible documentation platform.)_
 
-The project mirrors how real teams introduce AI into their documentation workflows: 
-
-***Carefully, Incrementally***, but more importantly, governed with ***Human Oversight.**
+The project mirrors how real teams introduce AI into their documentation workflows: ***Carefully, Incrementally***, but more importantly, governed with ***Human Oversight.***
 
 ![Preview of Developer Portal Demo](preview.png)
 
@@ -49,6 +47,11 @@ ai-doc-pipeline/
 │
 ├── AI Pipeline Code/
 │   ├── pipeline.py              # SOURCE: documentation pipeline logic
+│   │
+│   ├── inputs/
+│   │   ├── base.py
+│   │   └── openapi.py
+│   │
 │   └── ai/
 │       ├── __init__.py
 │       ├── enhancer.py          # AI editor logic
@@ -59,8 +62,10 @@ ai-doc-pipeline/
 │   └── payments_api.yaml
 │
 ├── Docs/
-│   ├── final_architecture.md
-│   └── pipeline_architecture_evolution.md
+│   ├── architecture.md
+│   ├── architecture_principles.md
+│   ├── pipeline_architecture_evolution.md
+│   └── README.md
 │
 ├── Generated Documentation/     # OUTPUT: generated documentation
 │   ├── .gitkeep
@@ -105,12 +110,18 @@ The phased progression below shows how each layer is built out over time. Phases
 - AI augments the pipeline, not replaces it
 - Strong focus on developer experience (DX)
 
-### Phase 3 — Multiple input types (current)
-- Extend beyond APIs to:
+### Phase 3 — Source-Agnostic Pipeline Architecture (current)
+
+- Decouple the pipeline from documentation source formats
+- Introduce a common documentation input abstraction
+- Separate pipeline orchestration from source-specific parsing
+- Extend the platform through input adapters
+- Support additional documentation sources, including:
   - SDKs / libraries
   - CLI tools
   - Configuration schemas
-- Same pipeline, different parsers
+  - Architecture specifications
+- Enable new documentation sources without modifying the core pipeline
 
 ### Phase 4 — Audience-aware documentation
 - Generate documentation tailored for:
@@ -129,7 +140,7 @@ The phased progression below shows how each layer is built out over time. Phases
 - Optionally, a lightweight Claude Skill that orchestrates these tools for common documentation tasks
 - Makes the pipeline callable by AI agents and external MCP clients, not just runnable as a local script
 
-Final Output: An end-to-end documentation pipeline with AI augmentation layer that is provider-agnostic. The pipeline can operate with a deterministic implementation, a local mock implementation for reproducible testing, or an external LLM provider without changing the surrounding system.
+Final Output: A modular, source-agnostic documentation platform that combines deterministic generation, provider-agnostic AI augmentation, and extensible input adapters. The architecture supports multiple documentation sources while allowing AI providers to be introduced through configuration without modifying the core pipeline.
 
 ------------------------------------------------------------------------
 
@@ -173,12 +184,13 @@ To Note:
 
 This repository exists to explore:
 
-- How technical documentation systems scale
-- How AI fits into real documentation workflows
-- How structure enables better automation
-- How writers, DX engineers, and product teams collaborate through tooling
+- How documentation platforms evolve through architectural layering
+- How structured technical inputs enable scalable automation
+- How deterministic systems and AI can coexist through clear architectural boundaries
+- How modular, extensible architectures support long-term platform evolution
+- How thoughtful system design improves developer experience and technical communication
 
-The emphasis is on **reasoning, structure, and evolution**, not just output.
+The emphasis is on **architecture, reasoning, modularity, and evolution**, not just the generated documentation.
 
 ------------------------------------------------------------------------
 
@@ -189,8 +201,7 @@ The emphasis is on **reasoning, structure, and evolution**, not just output.
 - Decisions are intentional and documented
 - The project remains understandable at every stage
 
-This mirrors how documentation platforms and internal tooling are built
-in real organizations.
+This mirrors how documentation platforms and internal tooling are built in real organizations.
 
 ------------------------------------------------------------------------
 
@@ -210,7 +221,16 @@ This architecture demonstrates a practical approach to introducing AI into techn
 
 Also, a mock provider is included for local testing, while external LLM providers can be connected through configuration. The AI Interface doesn't know whether it is talking to *OpenAI, Claude, Gemini, Ollama, or a Mock AI*
 
-Inspired by popular software engineering principles like: *abstraction, separation of concerns, avoiding vendor lock-in, safe experimentation, reproducibility*
+The architecture intentionally applies established software engineering principles, including:
+
+- Abstraction
+- Separation of Concerns
+- Open/Closed Principle
+- Provider Abstraction
+- Adapter-Based Extension
+- Avoiding Vendor Lock-In
+- Safe Experimentation
+- Reproducible Development
 
 ------------------------------------------------------------------------
 
