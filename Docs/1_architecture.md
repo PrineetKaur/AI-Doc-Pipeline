@@ -2,9 +2,7 @@
 
 ## Overview
 
-AI-Doc-Pipeline is a modular documentation platform that transforms
-technical inputs into structured documentation through a deterministic
-generation pipeline with an optional AI enhancement layer.
+AI-Doc-Pipeline is a modular documentation platform that transforms technical inputs into structured documentation through a deterministic generation pipeline with an optional AI enhancement layer.
 
 The architecture emphasizes:
 
@@ -59,13 +57,17 @@ The architecture emphasizes:
 
 ### Documentation Input Adapters
 
-Each documentation source is encapsulated behind a dedicated adapter
-responsible for parsing and converting its input into a common
-documentation model.
+Each documentation source is encapsulated behind a dedicated adapter responsible for parsing and converting its input into a common documentation model.
 
-Current: - OpenAPI
+Supported adapters:
 
-Planned: - SDK - CLI - Configuration - Architecture
+- OpenAPI
+- SDK
+- CLI
+- Configuration
+- Architecture
+
+Each adapter translates its own documentation source into a common interface consumed by the documentation pipeline. This keeps parsing logic isolated from orchestration and allows new documentation sources to be introduced without modifying the pipeline itself.
 
 ------------------------------------------------------------------------
 
@@ -84,10 +86,24 @@ The pipeline remains independent of individual documentation formats.
 
 ------------------------------------------------------------------------
 
+### InputFactory
+
+The `InputFactory` centralizes the creation of documentation input adapters.
+
+Rather than coupling the pipeline to concrete implementations such as `OpenAPIInput`, the factory is responsible for selecting the appropriate adapter based on the configured documentation source.
+
+Benefits include:
+
+- Centralized adapter selection
+- Reduced coupling between orchestration and parsing
+- Easier introduction of new documentation sources
+- Improved maintainability as the platform evolves
+
+------------------------------------------------------------------------
+
 ### Deterministic Generator
 
-The deterministic generator produces reproducible Markdown from
-structured inputs.
+The deterministic generator produces reproducible Markdown from structured inputs.
 
 Properties:
 
@@ -99,8 +115,7 @@ Properties:
 
 ### AI Enhancement Layer
 
-The AI layer performs editorial improvements after deterministic
-generation.
+The AI layer performs editorial improvements after deterministic generation.
 
 Supported providers:
 
@@ -135,6 +150,6 @@ Additional providers can be introduced without changing the pipeline.
 
 ## Summary
 
-The architecture is intentionally modular so that new documentation
-sources, AI providers, and output formats can be introduced with minimal
-changes to the orchestration layer.
+The architecture is intentionally modular so that new documentation sources, AI providers, and future output formats can be introduced with minimal changes to the orchestration layer.
+
+By separating input parsing, adapter selection, pipeline orchestration, deterministic generation, and AI enhancement into distinct responsibilities, the platform can evolve incrementally while maintaining a stable core architecture.
