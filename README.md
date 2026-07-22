@@ -24,7 +24,7 @@ APIs are used as the first example input, but the pipeline is intentionally desi
 
 ------------------------------------------------------------------------
 
-## Project Layers
+## Project layers
 This project is organized around three architectural layers, each responsible for a different part of turning technical input into usable documentation.
 
 ### Layer 1 — Deterministic Generation
@@ -93,7 +93,7 @@ Each folder has a clearly defined responsibility:
 
 ------------------------------------------------------------------------
 
-## The Phased Roadmap
+## The phased roadmap
 
 This repository is intentionally developed in **clear phases**, similar to a learning playground or to the evolution of internal tooling.
 
@@ -205,7 +205,7 @@ This mirrors how documentation platforms and internal tooling are built in real 
 
 ------------------------------------------------------------------------
 
-## AI Pipeline Architecture
+## AI pipeline architecture
 
 Rather than tightly coupling the pipeline to a single AI provider, the project separates documentation generation from AI enhancement.
 
