@@ -27,12 +27,12 @@ It focuses on the system as it exists today rather than the journey taken to bui
 
 ### Questions it Answers
 
-- What problem does the system solve?
-- What are the major architectural components?
-- How does the documentation pipeline work?
-- How do the different modules interact?
-- How is AI integrated?
-- How can the architecture be extended?
+- _What problem does the system solve?_
+- _What are the major architectural components?_
+- _How does the documentation pipeline work?_
+- _How do the different modules interact?_
+- _How is AI integrated?_
+- _How can the architecture be extended?_
 
 ### When to Read
 
@@ -53,13 +53,13 @@ Rather than describing the implementation itself, it explains the engineering pr
 
 ## Questions it Answers
 
-- Why deterministic generation first?
-- Why is AI optional?
-- Why use provider abstraction?
-- Why separate orchestration from parsing?
-- Why design for extensibility?
-- Why prioritize reproducibility?
-- Why treat AI as an enhancement layer rather than the source of truth?
+- _Why deterministic generation first?_
+- _Why is AI optional?_
+- _Why use provider abstraction?_
+- _Why separate orchestration from parsing?_
+- _Why design for extensibility?_
+- _Why prioritize reproducibility?_
+- _Why treat AI as an enhancement layer rather than the source of truth?_
 
 ### When to Read
 
@@ -80,12 +80,12 @@ Each phase introduces a new architectural capability while preserving previous f
 
 ### Questions it Answers
 
-- What was the original architecture?
-- Why did the architecture evolve?
-- What changed in each phase?
-- How did the system become more modular?
-- What capabilities were introduced over time?
-- What is the long-term architectural vision?
+- _What was the original architecture?_
+- _Why did the architecture evolve?_
+- _What changed in each phase?_
+- _How did the system become more modular?_
+- _What capabilities were introduced over time?_
+- _What is the long-term architectural vision?_
 
 ### When to Read
 
@@ -106,15 +106,15 @@ Rather than describing the architecture itself, it focuses on the reasoning behi
 
 ### Questions it Answers
 
-- Why deterministic generation before AI?
-- Why introduce AI as an enhancement layer?
-- Why include a mock AI provider?
-- Why use provider abstraction?
-- Why introduce input adapters?
-- Why wasn't the pipeline decoupled in Phase 1?
-- Why introduce an `InputFactory`?
-- Why prioritize these documentation adapters?
-- Why evolve the architecture incrementally?
+- _Why deterministic generation before AI?_
+- _Why introduce AI as an enhancement layer?_
+- _Why include a mock AI provider?_
+- _Why use provider abstraction?_
+- _Why introduce input adapters?_
+- _Why wasn't the pipeline decoupled in Phase 1?_
+- _Why introduce an InputFactory?_
+- _Why prioritize these documentation adapters?_
+- _Why evolve the architecture incrementally?_
 
 ### When to Read
 
@@ -218,12 +218,12 @@ Finish with **Architecture_Tradeoffs.md**.
 
 Explore the reasoning behind decisions such as:
 
-- Why AI was introduced after deterministic generation
-- Why adapters were chosen over pipeline-specific parsing
-- Why the architecture evolved incrementally
-- Why an `InputFactory` was introduced only after multiple adapters existed
-- Why these documentation sources were prioritized
-- How each decision balanced simplicity, extensibility, and maintainability
+- _Why AI was introduced after deterministic generation?_
+- _Why adapters were chosen over pipeline-specific parsing?_
+- _Why the architecture evolved incrementally?_
+- _Why an `InputFactory` was introduced only after multiple adapters existed?_
+- _Why these documentation sources were prioritized?_
+- _How each decision balanced simplicity, extensibility, and maintainability?_
 
 This explains not only what the architecture is, but why it was designed this way.
 
