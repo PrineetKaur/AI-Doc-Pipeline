@@ -1,54 +1,59 @@
 import os
+
 from pathlib import Path
 
-from inputs.openapi import OpenAPIInput
+from inputs.factory import InputFactory
 
 
 USE_AI = os.getenv("USE_AI", "false").lower() == "true"
 
-
 if USE_AI:
+
     try:
+
         from ai.enhancer import enhance_markdown
+
     except ImportError:
+
         USE_AI = False
 
 
 def main():
 
-    spec_path = "API Specs/payments_api.yaml"
+    # ------------------------------------------------------------------
+    # Documentation source configuration
+    # ------------------------------------------------------------------
+
+    INPUT_TYPE = "openapi"
+
+    INPUT_PATH = "API Specs/payments_api.yaml"
+
+    # ------------------------------------------------------------------
 
     output_dir = Path("Generated Documentation")
-    output_file = output_dir / "api.md"
 
+    output_file = output_dir / "api.md"
 
     print("Loading documentation input...")
 
-
-    # Phase 3:
-    # Input type is now abstracted.
-    # Today: OpenAPI
-    # Future: SDK, CLI, Config, Architecture docs
-
-    documentation_input = OpenAPIInput(spec_path)
-
+    documentation_input = InputFactory.create(
+        input_type=INPUT_TYPE,
+        path=INPUT_PATH,
+    )
 
     print(
         f"Processing input type: {documentation_input.name}"
     )
 
-
     print("Generating documentation draft...")
 
-
     docs = documentation_input.generate_documentation()
-
 
     if USE_AI:
 
         provider = os.getenv(
             "AI_PROVIDER",
-            "mock"
+            "mock",
         )
 
         print(
@@ -59,7 +64,7 @@ def main():
 
             docs = enhance_markdown(
                 markdown_text=docs,
-                provider=provider
+                provider=provider,
             )
 
             print(
@@ -76,15 +81,13 @@ def main():
                 "Using deterministic documentation."
             )
 
-
     output_dir.mkdir(
         exist_ok=True
     )
 
-
     with open(output_file, "w") as file:
-        file.write(docs)
 
+        file.write(docs)
 
     print(
         "Documentation generated successfully."
@@ -95,6 +98,6 @@ def main():
     )
 
 
-
 if __name__ == "__main__":
+
     main()
