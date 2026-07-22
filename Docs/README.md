@@ -10,14 +10,14 @@ This directory contains the architectural and design documentation for the proje
 
 | Document | Purpose | Primary Focus |
 |----------|---------|---------------|
-| **Architecture.md** | Describes the current architecture of the system. | Current system structure, components, and data flow |
+| **Pipeline_Architecture.md** | Describes the current architecture of the system. | Current system structure, components, and data flow |
 | **Architecture_Principles.md** | Explains the engineering principles that guide the architecture. | Enduring design principles and architectural philosophy |
-| **Pipeline_Architecture_Evolution.md** | Documents how the architecture evolved throughout the project lifecycle. | Evolution of the architecture across project phases |
+| **Architecture_Evolution.md** | Documents how the architecture evolved throughout the project lifecycle. | Evolution of the architecture across project phases |
 | **Architecture_Tradeoffs.md** | Explains the rationale behind key architectural decisions and trade-offs. | Architectural decision-making and design rationale |
 
 ---
 
-## Architecture.md
+## Pipeline_Architecture.md
 
 ### Purpose
 
@@ -70,7 +70,7 @@ Rather than describing the implementation itself, it explains the engineering pr
 
 ---
 
-## Pipeline_Architecture_Evolution.md
+## Architecture_Evolution.md
 
 ### Purpose
 
