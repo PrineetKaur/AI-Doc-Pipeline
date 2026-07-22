@@ -19,29 +19,38 @@ The architecture emphasizes:
 ## High-Level Architecture
 
 ``` text
-                      Documentation Sources
-        ┌──────────┬──────────┬──────────┬───────────┐
-        ▼          ▼          ▼          ▼           ▼
-     OpenAPI      SDK        CLI       Config   Architecture
-        │          │          │          │           │
-        └──────────┴──────────┴──────────┴───────────┘
-                              │
-                              ▼
-                    Documentation Pipeline
-                              │
-                   Deterministic Generator
-                              │
-                              ▼
-                       Markdown Draft
-                              │
-                              ▼
-                     AI Enhancement Layer
-              ┌───────────────┴────────────────┐
-              ▼                                ▼
-        Mock Provider                   OpenAI Provider
-                              │
-                              ▼
-                     Final Documentation
+
+                       Documentation Sources
+         ┌──────────┬──────────┬──────────┬─────────────┐
+         ▼          ▼          ▼          ▼             ▼
+      OpenAPI      SDK        CLI   Configuration  Architecture
+         │          │          │          │             │
+         ▼          ▼          ▼          ▼             ▼
+      OpenAPI      SDK        CLI      Config      Architecture
+      Adapter    Adapter    Adapter    Adapter       Adapter
+        └───────────┴──────────┬──────────┴─────────────┘
+                               │
+                               ▼
+                          InputFactory
+                               │
+                               ▼
+                     Documentation Pipeline
+                               │
+                               ▼
+                    Deterministic Generator
+                               │
+                               ▼
+                         Markdown Draft
+                               │
+                               ▼
+                      AI Enhancement Layer
+                     ┌─────────┴─────────┐
+                     ▼                   ▼
+               Mock Provider      OpenAI Provider
+                               │
+                               ▼
+                      Final Documentation
+
 ```
 
 ------------------------------------------------------------------------
