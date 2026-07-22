@@ -1,4 +1,4 @@
-# Final Pipeline Architecture 
+# Pipeline Architecture 
 
 ## Overview
 
