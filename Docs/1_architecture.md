@@ -73,16 +73,18 @@ Each adapter translates its own documentation source into a common interface con
 
 ### Documentation Pipeline
 
-The pipeline orchestrates the documentation workflow.
+The documentation pipeline serves as the central orchestration layer of the system.
+
+Rather than containing parsing logic for individual documentation sources, it coordinates the overall documentation generation workflow while delegating specialized responsibilities to dedicated components.
 
 Responsibilities:
 
--   Load the selected input adapter
--   Generate deterministic documentation
--   Optionally invoke AI enhancement
--   Write generated documentation to disk
+- Request the appropriate documentation adapter from the `InputFactory`
+- Generate deterministic documentation from the selected input
+- Optionally invoke the AI enhancement layer
+- Write the generated documentation to disk
 
-The pipeline remains independent of individual documentation formats.
+The pipeline depends only on the common `DocumentationInput` abstraction and remains independent of individual documentation formats. As a result, new documentation sources can be introduced without modifying the orchestration logic.
 
 ------------------------------------------------------------------------
 
