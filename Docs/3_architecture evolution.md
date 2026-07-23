@@ -1,19 +1,43 @@
-
 # Pipeline Architecture Evolution
 
-> **Purpose:** Document the architectural evolution of the documentation pipeline throughout the project lifecycle.
+> **Purpose:** Document the architectural evolution of the documentation platform throughout the project lifecycle.
 
-------------------------------------------------------------------------
+---
 
 ## Project Vision
 
 The objective of AI-Doc-Pipeline is not to build a tool that simply converts OpenAPI specifications into Markdown.
 
-The goal is to demonstrate how a documentation platform can evolve from a deterministic documentation generator into a modular, AI-augmented documentation system capable of supporting multiple documentation sources and multiple audiences while maintaining clear architectural boundaries.
+The goal is to demonstrate how a documentation platform can evolve from a deterministic documentation generator into a modular, AI-enabled documentation platform capable of supporting multiple documentation sources, multiple audiences, and future automation while maintaining clear architectural boundaries.
 
 The project intentionally evolves in phases, with each phase introducing a new architectural capability while preserving previous functionality.
 
-------------------------------------------------------------------------
+---
+
+## Evolution Timeline
+
+```text
+               Phase 1
+(Deterministic Documentation Generation)
+                  │
+                  ▼
+               Phase 2
+        (AI Enhancement Layer)
+                  │
+                  ▼
+               Phase 3
+(Source-Agnostic Pipeline Architecture)
+                  │
+                  ▼
+               Phase 4
+    (Audience-Aware Documentation)
+                  │
+                  ▼
+               Phase 5
+  (Documentation Quality & Automation)
+```
+
+---
 
 ## Phase 1 - Deterministic Documentation Generation
 
@@ -29,7 +53,7 @@ Generate documentation directly from an OpenAPI specification using a determinis
 
 ### Architecture
 
-``` text
+```text
           OpenAPI Specification
                     │
                     ▼
@@ -39,30 +63,23 @@ Generate documentation directly from an OpenAPI specification using a determinis
           Markdown Documentation
 ```
 
-### Design Decisions
-
--   Deterministic generation ensures reproducible output.
--   Documentation is generated directly from the specification.
--   No external services are required.
--   The generated documentation becomes the single source of truth.
-
 ### Files Introduced
 
-``` text
+```text
 pipeline.py
 payments_api.yaml
 Generated Documentation/api.md
 ```
 
-### Key Takeaways
+### Outcome
 
--   Deterministic systems are predictable and reproducible.
--   API specifications can serve as documentation sources.
--   Documentation generation should be automated whenever possible.
+- Documentation generation became deterministic and reproducible.
+- API specifications became the authoritative documentation source.
+- A stable architectural foundation was established for future enhancements.
 
-------------------------------------------------------------------------
+---
 
-## Phase 2 - AI Augmentation Layer
+## Phase 2 - AI Enhancement Layer
 
 **Status:** ✅ Completed
 
@@ -72,11 +89,11 @@ Deterministic documentation is technically correct but often lacks readability a
 
 ### Solution
 
-Introduce an optional AI enhancement layer after deterministic generation while keeping deterministic output as the source of truth.
+Introduce an optional AI enhancement layer after deterministic generation while preserving deterministic output as the authoritative source.
 
 ### Architecture
 
-``` text
+```text
              OpenAPI Specification
                        │
                        ▼
@@ -97,48 +114,38 @@ Introduce an optional AI enhancement layer after deterministic generation while 
            Enhanced Markdown Output
 ```
 
-### Design Decisions
-
--   AI is optional.
--   Deterministic generation remains authoritative.
--   Provider abstraction avoids vendor lock-in.
--   Mock provider enables reproducible local development.
--   External providers can be connected through configuration.
-
 ### Files Introduced
 
-``` text
+```text
 ai/
     enhancer.py
     mock_llm.py
     prompts.py
 ```
 
-### Key Takeaways
+### Outcome
 
--   AI enhances deterministic systems instead of replacing them.
--   Provider abstraction enables flexibility.
--   Mock implementations simplify demonstrations.
+- AI became an optional editorial layer.
+- Deterministic generation remained the source of truth.
+- The platform became provider-independent through an abstraction layer.
 
-------------------------------------------------------------------------
+---
 
-## Phase 3 - Decoupling the Pipeline from Documentation Sources
+## Phase 3 - Source-Agnostic Pipeline Architecture
 
-**Status:** 🚧 In Progress
+**Status:** ✅ Completed
 
 ### Problem
 
 The documentation pipeline was tightly coupled to a single documentation source.
 
-Although the system successfully generated documentation from OpenAPI specifications, the orchestration layer had direct knowledge of the input format. Supporting additional documentation sources would require modifying the pipeline itself, making the architecture increasingly difficult to extend and maintain.
+Although the system successfully generated documentation from OpenAPI specifications, the orchestration layer had direct knowledge of the input format. Supporting additional documentation sources would require modifying the pipeline itself, making the architecture increasingly difficult to extend.
 
 ### Solution
 
 Introduce an adapter-based architecture that separates documentation parsing from pipeline orchestration.
 
-Rather than depending on a specific documentation source, the pipeline depends on a common input abstraction. Each documentation source becomes responsible for translating its own structure into a unified format understood by the pipeline.
-
-This transforms the pipeline from a source-specific implementation into a source-agnostic platform.
+Each documentation source is encapsulated behind a dedicated adapter that implements a common interface, allowing the pipeline to orchestrate documentation generation without knowledge of individual source formats.
 
 ### Current Architecture
 
@@ -182,68 +189,58 @@ This transforms the pipeline from a source-specific implementation into a source
 ### Target Architecture
 
 ```text
-                 Documentation Sources
+                    Documentation Sources
 
-              OpenAPI    SDK      CLI
-                 │        │        │
-                 ▼        ▼        ▼
-              OpenAPI    SDK      CLI
-              Adapter  Adapter   Adapter
-                 │        │        │
-                 └────────┴────────┘
-                          │
-                          ▼
-                Documentation Pipeline
-                          │
-                          ▼
-               Deterministic Generator
-                          │
-                          ▼
-                AI Enhancement Layer
-               ┌──────────┴──────────┐
-               ▼                     ▼
-         Mock Provider        OpenAI Provider
-                          │
-                          ▼
-               Generated Documentation
+       OpenAPI      SDK      CLI      Config      Architecture
+           │         │        │          │              │
+           ▼         ▼        ▼          ▼              ▼
+       OpenAPI      SDK      CLI      Config      Architecture
+       Adapter   Adapter  Adapter    Adapter       Adapter
+           │         │        │          │              │
+           └─────────┴────────┴──────────┴──────────────┘
+                              │
+                              ▼
+                         Input Factory
+                              │
+                              ▼
+                    Documentation Pipeline
+                              │
+                              ▼
+                   Deterministic Generator
+                              │
+                              ▼
+                    AI Enhancement Layer
+                 ┌────────────┴────────────┐
+                 ▼                         ▼
+          Mock Provider            OpenAI Provider
+                              │
+                              ▼
+                   Generated Documentation
 ```
 
-### Design Decisions
-
-- Decouple pipeline orchestration from documentation parsing.
-- Introduce source-specific adapters behind a common interface.
-- Keep the pipeline independent of documentation source formats.
-- Enable new documentation sources without modifying the pipeline.
-- Apply the Open/Closed Principle by extending the system through adapters rather than changing the orchestration layer.
-
 ### Files Introduced
-
-Current
 
 ```text
 inputs/
     base.py
     openapi.py
-```
-
-Planned
-
-```text
-inputs/
     sdk.py
     cli.py
     config.py
     architecture.py
+    factory.py
+
+pipeline.py
 ```
 
-### Key Takeaways
+### Outcome
 
-- The pipeline becomes source-agnostic.
-- New documentation sources are introduced through adapters.
-- The orchestration layer remains stable as the platform evolves.
-- Architectural extensibility is achieved through abstraction rather than modification.
+- The pipeline became independent of individual documentation sources.
+- Documentation parsing was delegated to dedicated adapters.
+- New documentation sources can be added without changing pipeline orchestration.
+- The platform now supports source-agnostic architectural growth.
 
-------------------------------------------------------------------------
+---
 
 ## Phase 4 - Audience-Aware Documentation
 
@@ -251,7 +248,7 @@ inputs/
 
 ### Architecture
 
-``` text
+```text
           Documentation Pipeline
                     │
                     ▼
@@ -263,7 +260,7 @@ inputs/
 Documentation Documentation Documentation
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Phase 5 - Documentation Quality & Automation
 
@@ -271,7 +268,7 @@ Documentation Documentation Documentation
 
 ### Architecture
 
-``` text
+```text
        Documentation
              │
              ▼
@@ -287,17 +284,20 @@ Documentation Documentation Documentation
   Published Documentation
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Long-Term Platform Architecture
 
-``` text
+```text
                         Documentation Sources
           ┌──────────┬──────────┬───────────┬────────────┐
           ▼          ▼          ▼           ▼            ▼
-       OpenAPI      SDK        CLI        Config    Architecture
+       OpenAPI      SDK        CLI       Config    Architecture
           │          │          │           │            │
           └──────────┴──────────┴───────────┴────────────┘
+                                │
+                                ▼
+                          Input Factory
                                 │
                                 ▼
                       Documentation Pipeline
