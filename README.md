@@ -1,4 +1,4 @@
-# An End-to-End Documentation Platform with Progressive AI Integration
+# An End-to-End Doc Platform with Progressive AI Integration
 
 This repository is a progressive, hands-on project that demonstrates how to design and evolve a modern documentation platform.
 
