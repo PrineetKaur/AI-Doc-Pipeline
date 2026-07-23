@@ -8,9 +8,9 @@
 
 The objective of this project is not to build a tool that simply converts OpenAPI specifications into Markdown.
 
-The goal is to demonstrate how a documentation platform can evolve from a deterministic documentation generator into a modular, AI-enabled documentation platform capable of supporting multiple documentation sources, multiple audiences, and future automation while maintaining clear architectural boundaries.
+The goal is to demonstrate how a documentation platform can **evolve from a deterministic documentation generator into a modular, AI-enabled documentation platform capable of supporting multiple documentation sources, multiple audiences**, and future automation while maintaining clear architectural boundaries.
 
-The project intentionally evolves in phases, with each phase introducing a new architectural capability while preserving previous functionality.
+The project intentionally evolves in phases, with each phase introducing a new architectural capability while preserving previous ones.
 
 ---
 
