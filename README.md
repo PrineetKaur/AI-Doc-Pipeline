@@ -1,14 +1,14 @@
 # End-to-End Doc Platform with AI Augmentation
 
-This repository is a progressive, hands-on project that demonstrates how to design and evolve a modern documentation platform.
+This repository is a progressive, hands-on project that demonstrates **how to design and evolve a modern documentation platform.**
 
-Rather than focusing on AI alone, the project explores how structured technical inputs can be transformed into high-quality documentation through a modular architecture built on deterministic generation, extensible pipelines, and optional AI-assisted enhancement.
+The goal is to demonstrate how documentation platforms should evolve:
 
-The goal is not to build an AI documentation tool.
+***Starting from Deterministic Automation, progressively introducing Modular Architecture, and incorporating AI only where it Provides Measurable Value while preserving Transparency, Reproducibility, and Human Oversight.***
 
-The goal is to demonstrate **how documentation platforms evolve**—starting from deterministic automation, progressively introducing modular architecture, and incorporating AI only where it provides measurable value while preserving transparency, reproducibility, and human oversight.
+The project mirrors how modern teams evolve internal documentation platforms: 
 
-The project mirrors how mature engineering teams evolve internal documentation platforms: **incrementally, intentionally, and with architecture guiding every stage of growth.**
+***Incrementally, Intentionally, and with Architecture guiding every stage of growth.***
 
 ![Preview of Documnetation Platform](preview.png)
 
