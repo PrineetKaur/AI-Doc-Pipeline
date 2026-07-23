@@ -125,30 +125,6 @@ Rather than describing the architecture itself, it focuses on the reasoning behi
 
 ---
 
-## Recommended Reading Order
-
-If you are exploring the project for the first time, read the documents in the following order:
-
-```text
-                README.md
-                    │
-                    ▼
-         Pipeline Architecture.md
-                    │
-                    ▼
-        Architecture_Principles.md
-                    │
-                    ▼
-        Architecture_Evolution.md
-                    │
-                    ▼
-        Architecture_Tradeoffs.md
-```
-
-This sequence introduces the project, explains the current architecture, presents the architectural principles that guide the design, walks through the system's evolution, and finally explains the reasoning behind the major architectural decisions.
-
----
-
 ## Documentation Walkthrough
 
 A simple way to explore the project is:
