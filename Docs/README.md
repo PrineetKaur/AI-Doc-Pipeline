@@ -133,13 +133,13 @@ If you are exploring the project for the first time, read the documents in the f
                 README.md
                     │
                     ▼
-             Architecture.md
+         Pipeline Architecture.md
                     │
                     ▼
         Architecture_Principles.md
                     │
                     ▼
-    Pipeline_Architecture_Evolution.md
+        Architecture_Evolution.md
                     │
                     ▼
         Architecture_Tradeoffs.md
