@@ -6,7 +6,7 @@
 
 ## Project Vision
 
-The objective of AI-Doc-Pipeline is not to build a tool that simply converts OpenAPI specifications into Markdown.
+The objective of this project is not to build a tool that simply converts OpenAPI specifications into Markdown.
 
 The goal is to demonstrate how a documentation platform can evolve from a deterministic documentation generator into a modular, AI-enabled documentation platform capable of supporting multiple documentation sources, multiple audiences, and future automation while maintaining clear architectural boundaries.
 
