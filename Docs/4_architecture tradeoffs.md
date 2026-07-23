@@ -6,7 +6,7 @@ Unlike the Architecture Evolution document, which explains *how* the platform ev
 
 ---
 
-## 1 — Why Start with Deterministic Generation?
+## 1) Why Start with Deterministic Generation?
 
 ### Challenge
 
@@ -44,7 +44,7 @@ The deterministic generator became the architectural foundation upon which every
 
 ---
 
-## 2 — Why Treat AI as an Enhancement Layer?
+## 2) Why Treat AI as an Enhancement Layer?
 
 ### Challenge
 
@@ -80,7 +80,7 @@ The architecture remains reliable while still benefiting from AI-assisted editor
 
 ---
 
-## 3 — Why Use Provider Abstraction?
+## 3) Why Use Provider Abstraction?
 
 ### Challenge
 
@@ -115,7 +115,7 @@ New providers can be introduced without changing the surrounding pipeline.
 
 ---
 
-## 4 — Why Include a Mock AI Provider?
+## 4) Why Include a Mock AI Provider?
 
 ### Challenge
 
@@ -150,7 +150,7 @@ The repository remains fully executable without external dependencies while pres
 
 ---
 
-## 5 — Why Decouple the Pipeline from Documentation Sources?
+## 5) Why Decouple the Pipeline from Documentation Sources?
 
 ### Challenge
 
@@ -187,7 +187,7 @@ The pipeline now orchestrates documentation generation without knowledge of indi
 
 ---
 
-## 6 — Why Introduce Input Adapters?
+## 6) Why Introduce Input Adapters?
 
 ### Challenge
 
@@ -222,7 +222,7 @@ Each documentation source becomes independently maintainable while presenting a 
 
 ---
 
-## 7 — Why Introduce an Input Factory?
+## 7) Why Introduce an Input Factory?
 
 ### Challenge
 
@@ -256,7 +256,7 @@ Adding new documentation sources no longer requires modifying the pipeline orche
 
 ---
 
-## 8 — Why Prioritize These Documentation Sources?
+## 8) Why Prioritize These Documentation Sources?
 
 ### Challenge
 
@@ -297,7 +297,7 @@ The repository demonstrates a platform architecture rather than an API-specific 
 
 ---
 
-## 9 — Why Evolve the Architecture Incrementally?
+## 9) Why Evolve the Architecture Incrementally?
 
 ### Challenge
 
@@ -331,7 +331,7 @@ The repository documents not only the final architecture but also the engineerin
 
 ---
 
-## 10 — Why Keep Deterministic Output as the Source of Truth?
+## 10) Why Keep Deterministic Output as the Source of Truth?
 
 ### Challenge
 
@@ -367,7 +367,7 @@ The architecture balances automation with reliability, ensuring that AI augments
 
 ## Summary
 
-The architecture of AI-Doc-Pipeline is the result of a series of deliberate engineering decisions rather than isolated implementation choices.
+The architecture of this project is the result of a series of deliberate engineering decisions rather than isolated implementation choices.
 
 Each decision introduced a specific capability while balancing simplicity, extensibility, maintainability, and long-term evolution.
 
