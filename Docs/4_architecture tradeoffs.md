@@ -6,9 +6,9 @@ Unlike the Architecture Evolution document, which explains *how* the platform ev
 
 ---
 
-## Decision 1 — Why Start with Deterministic Generation?
+## 1 — Why Start with Deterministic Generation?
 
-### Context
+### Challenge
 
 The project began with the goal of generating documentation directly from structured technical specifications.
 
@@ -44,9 +44,9 @@ The deterministic generator became the architectural foundation upon which every
 
 ---
 
-## Decision 2 — Why Treat AI as an Enhancement Layer?
+## 2 — Why Treat AI as an Enhancement Layer?
 
-### Context
+### Challenge
 
 Once deterministic documentation was available, the next decision was how AI should participate in the pipeline.
 
@@ -80,9 +80,9 @@ The architecture remains reliable while still benefiting from AI-assisted editor
 
 ---
 
-## Decision 3 — Why Use Provider Abstraction?
+## 3 — Why Use Provider Abstraction?
 
-### Context
+### Challenge
 
 AI providers evolve rapidly, and vendor lock-in can make systems difficult to maintain.
 
@@ -115,9 +115,9 @@ New providers can be introduced without changing the surrounding pipeline.
 
 ---
 
-## Decision 4 — Why Include a Mock AI Provider?
+## 4 — Why Include a Mock AI Provider?
 
-### Context
+### Challenge
 
 Many portfolio projects require external APIs and paid services to demonstrate AI functionality.
 
@@ -150,9 +150,9 @@ The repository remains fully executable without external dependencies while pres
 
 ---
 
-## Decision 5 — Why Decouple the Pipeline from Documentation Sources?
+## 5 — Why Decouple the Pipeline from Documentation Sources?
 
-### Context
+### Challenge
 
 The original pipeline was designed specifically for OpenAPI specifications.
 
@@ -187,9 +187,9 @@ The pipeline now orchestrates documentation generation without knowledge of indi
 
 ---
 
-## Decision 6 — Why Introduce Input Adapters?
+## 6 — Why Introduce Input Adapters?
 
-### Context
+### Challenge
 
 Different documentation sources expose different structures and parsing requirements.
 
@@ -222,9 +222,9 @@ Each documentation source becomes independently maintainable while presenting a 
 
 ---
 
-## Decision 7 — Why Introduce an Input Factory?
+## 7 — Why Introduce an Input Factory?
 
-### Context
+### Challenge
 
 Once multiple adapters existed, the pipeline needed a scalable way to select the appropriate implementation.
 
@@ -256,9 +256,9 @@ Adding new documentation sources no longer requires modifying the pipeline orche
 
 ---
 
-## Decision 8 — Why Prioritize These Documentation Sources?
+## 8 — Why Prioritize These Documentation Sources?
 
-### Context
+### Challenge
 
 The platform could potentially support many different documentation sources.
 
@@ -297,9 +297,9 @@ The repository demonstrates a platform architecture rather than an API-specific 
 
 ---
 
-## Decision 9 — Why Evolve the Architecture Incrementally?
+## 9 — Why Evolve the Architecture Incrementally?
 
-### Context
+### Challenge
 
 Many projects attempt to implement a complete architecture from the beginning.
 
@@ -331,9 +331,9 @@ The repository documents not only the final architecture but also the engineerin
 
 ---
 
-## Decision 10 — Why Keep Deterministic Output as the Source of Truth?
+## 10 — Why Keep Deterministic Output as the Source of Truth?
 
-### Context
+### Challenge
 
 As AI capabilities increase, it becomes tempting to delegate more responsibility to AI systems.
 
