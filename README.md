@@ -114,7 +114,7 @@ The phased progression below shows how each layer is built out over time. Phases
 - AI augments the pipeline, not replaces it
 - Strong focus on developer experience (DX)
 
-### Phase 3 — Source-Agnostic Pipeline Architecture (current)
+### Phase 3 — Source-Agnostic Pipeline Architecture 
 
 - Decouple the pipeline from documentation source formats
 - Introduce a common documentation input abstraction
@@ -127,7 +127,7 @@ The phased progression below shows how each layer is built out over time. Phases
   - Architecture specifications
 - Enable new documentation sources without modifying the core pipeline
 
-### Phase 4 — Audience-aware documentation
+### Phase 4 — Audience-aware documentation  (current)
 - Generate documentation tailored for:
   - Developers
   - Product or platform users
